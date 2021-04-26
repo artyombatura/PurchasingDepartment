@@ -13,6 +13,10 @@
 		F8ED5C1826373A9C00E3860D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8ED5C1726373A9C00E3860D /* Assets.xcassets */; };
 		F8ED5C1B26373A9C00E3860D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8ED5C1926373A9C00E3860D /* LaunchScreen.storyboard */; };
 		F8ED5C2726373B4400E3860D /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = F8ED5C2626373B4400E3860D /* .gitignore */; };
+		F8ED5C2F26373EC200E3860D /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ED5C2E26373EC200E3860D /* Coordinator.swift */; };
+		F8ED5C3226373EDD00E3860D /* NavigationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ED5C3126373EDD00E3860D /* NavigationCoordinator.swift */; };
+		F8ED5C3526373EEB00E3860D /* TabsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ED5C3426373EEB00E3860D /* TabsCoordinator.swift */; };
+		F8ED5C3A26373F1400E3860D /* AppContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ED5C3926373F1400E3860D /* AppContext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +29,10 @@
 		F8ED5C1A26373A9C00E3860D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F8ED5C1C26373A9C00E3860D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F8ED5C2626373B4400E3860D /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		F8ED5C2E26373EC200E3860D /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		F8ED5C3126373EDD00E3860D /* NavigationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationCoordinator.swift; sourceTree = "<group>"; };
+		F8ED5C3426373EEB00E3860D /* TabsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabsCoordinator.swift; sourceTree = "<group>"; };
+		F8ED5C3926373F1400E3860D /* AppContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppContext.swift; sourceTree = "<group>"; };
 		FEC60FB45A2EE9552F02589A /* Pods_PurchasingDepartment.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PurchasingDepartment.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -116,8 +124,36 @@
 		F8ED5C2D26373D4C00E3860D /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				F8ED5C3C26373F1C00E3860D /* PresentationLayer */,
+				F8ED5C3826373F0300E3860D /* AppContext */,
+				F8ED5C3726373EF600E3860D /* Coordinator */,
 			);
 			path = Base;
+			sourceTree = "<group>";
+		};
+		F8ED5C3726373EF600E3860D /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				F8ED5C2E26373EC200E3860D /* Coordinator.swift */,
+				F8ED5C3126373EDD00E3860D /* NavigationCoordinator.swift */,
+				F8ED5C3426373EEB00E3860D /* TabsCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		F8ED5C3826373F0300E3860D /* AppContext */ = {
+			isa = PBXGroup;
+			children = (
+				F8ED5C3926373F1400E3860D /* AppContext.swift */,
+			);
+			path = AppContext;
+			sourceTree = "<group>";
+		};
+		F8ED5C3C26373F1C00E3860D /* PresentationLayer */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = PresentationLayer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -216,8 +252,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8ED5C3526373EEB00E3860D /* TabsCoordinator.swift in Sources */,
+				F8ED5C3A26373F1400E3860D /* AppContext.swift in Sources */,
 				F8ED5C0F26373A9A00E3860D /* AppDelegate.swift in Sources */,
 				F8ED5C1126373A9A00E3860D /* SceneDelegate.swift in Sources */,
+				F8ED5C3226373EDD00E3860D /* NavigationCoordinator.swift in Sources */,
+				F8ED5C2F26373EC200E3860D /* Coordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
