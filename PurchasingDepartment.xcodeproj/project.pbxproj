@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -22,6 +22,12 @@
 		F8B2BBDC263EFD69002F741A /* SuppliersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B2BBDB263EFD69002F741A /* SuppliersViewController.swift */; };
 		F8B2BBDF263EFD91002F741A /* UserAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B2BBDE263EFD91002F741A /* UserAccountViewController.swift */; };
 		F8B2BBE2263EFDAA002F741A /* GoodsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B2BBE1263EFDAA002F741A /* GoodsViewController.swift */; };
+		F8B2BBE7263F01FD002F741A /* AuthorizationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B2BBE6263F01FD002F741A /* AuthorizationCoordinator.swift */; };
+		F8B2BBEB263F0235002F741A /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B2BBEA263F0235002F741A /* AuthViewController.swift */; };
+		F8B2BBEE263F024D002F741A /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B2BBED263F024D002F741A /* AuthView.swift */; };
+		F8B2BBF4263F0B78002F741A /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B2BBF3263F0B78002F741A /* ActionButton.swift */; };
+		F8B2BBF7263F0DFA002F741A /* UnderlinedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B2BBF6263F0DFA002F741A /* UnderlinedTextField.swift */; };
+		F8B2BBFA263F0F50002F741A /* UIColor + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B2BBF9263F0F50002F741A /* UIColor + Extensions.swift */; };
 		F8ED5C0F26373A9A00E3860D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ED5C0E26373A9A00E3860D /* AppDelegate.swift */; };
 		F8ED5C1826373A9C00E3860D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8ED5C1726373A9C00E3860D /* Assets.xcassets */; };
 		F8ED5C1B26373A9C00E3860D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8ED5C1926373A9C00E3860D /* LaunchScreen.storyboard */; };
@@ -49,6 +55,12 @@
 		F8B2BBDB263EFD69002F741A /* SuppliersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuppliersViewController.swift; sourceTree = "<group>"; };
 		F8B2BBDE263EFD91002F741A /* UserAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAccountViewController.swift; sourceTree = "<group>"; };
 		F8B2BBE1263EFDAA002F741A /* GoodsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodsViewController.swift; sourceTree = "<group>"; };
+		F8B2BBE6263F01FD002F741A /* AuthorizationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationCoordinator.swift; sourceTree = "<group>"; };
+		F8B2BBEA263F0235002F741A /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
+		F8B2BBED263F024D002F741A /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
+		F8B2BBF3263F0B78002F741A /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
+		F8B2BBF6263F0DFA002F741A /* UnderlinedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderlinedTextField.swift; sourceTree = "<group>"; };
+		F8B2BBF9263F0F50002F741A /* UIColor + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + Extensions.swift"; sourceTree = "<group>"; };
 		F8ED5C0B26373A9A00E3860D /* PurchasingDepartment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PurchasingDepartment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8ED5C0E26373A9A00E3860D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F8ED5C1726373A9C00E3860D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -130,6 +142,8 @@
 		F8B2BBBA263EF123002F741A /* AuthorizationModule */ = {
 			isa = PBXGroup;
 			children = (
+				F8B2BBE9263F021D002F741A /* AuthMain */,
+				F8B2BBE6263F01FD002F741A /* AuthorizationCoordinator.swift */,
 			);
 			path = AuthorizationModule;
 			sourceTree = "<group>";
@@ -139,6 +153,7 @@
 			children = (
 				F8B2BBBC263EF1AA002F741A /* UITabBarItem + Extensions.swift */,
 				F8B2BBCC263EFC99002F741A /* UIImage + Extensions.swift */,
+				F8B2BBF9263F0F50002F741A /* UIColor + Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -157,6 +172,15 @@
 				F8B2BBDB263EFD69002F741A /* SuppliersViewController.swift */,
 			);
 			path = SuppliersMain;
+			sourceTree = "<group>";
+		};
+		F8B2BBE9263F021D002F741A /* AuthMain */ = {
+			isa = PBXGroup;
+			children = (
+				F8B2BBEA263F0235002F741A /* AuthViewController.swift */,
+				F8B2BBED263F024D002F741A /* AuthView.swift */,
+			);
+			path = AuthMain;
 			sourceTree = "<group>";
 		};
 		F8ED5C0226373A9A00E3860D = {
@@ -255,6 +279,8 @@
 		F8ED5C3C26373F1C00E3860D /* PresentationLayer */ = {
 			isa = PBXGroup;
 			children = (
+				F8B2BBF3263F0B78002F741A /* ActionButton.swift */,
+				F8B2BBF6263F0DFA002F741A /* UnderlinedTextField.swift */,
 			);
 			path = PresentationLayer;
 			sourceTree = "<group>";
@@ -270,6 +296,7 @@
 				F8ED5C0726373A9A00E3860D /* Sources */,
 				F8ED5C0826373A9A00E3860D /* Frameworks */,
 				F8ED5C0926373A9A00E3860D /* Resources */,
+				FDB2A7AB21537242F856B403 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -348,6 +375,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		FDB2A7AB21537242F856B403 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PurchasingDepartment/Pods-PurchasingDepartment-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PurchasingDepartment/Pods-PurchasingDepartment-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PurchasingDepartment/Pods-PurchasingDepartment-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -359,11 +403,15 @@
 				F8B2BBD9263EFD57002F741A /* GoodsCoordinator.swift in Sources */,
 				F8ED5C3526373EEB00E3860D /* TabsCoordinator.swift in Sources */,
 				F8B2BBC3263EF2AD002F741A /* BaseNavigationVC.swift in Sources */,
+				F8B2BBF4263F0B78002F741A /* ActionButton.swift in Sources */,
 				F8ED5C3A26373F1400E3860D /* AppContext.swift in Sources */,
 				F8ED5C0F26373A9A00E3860D /* AppDelegate.swift in Sources */,
+				F8B2BBF7263F0DFA002F741A /* UnderlinedTextField.swift in Sources */,
+				F8B2BBE7263F01FD002F741A /* AuthorizationCoordinator.swift in Sources */,
 				F8B2BBDC263EFD69002F741A /* SuppliersViewController.swift in Sources */,
 				F8B2BBBD263EF1AA002F741A /* UITabBarItem + Extensions.swift in Sources */,
 				F8B2BBCD263EFC99002F741A /* UIImage + Extensions.swift in Sources */,
+				F8B2BBEB263F0235002F741A /* AuthViewController.swift in Sources */,
 				F8B2BBAC263EEBE5002F741A /* AppCoordinator.swift in Sources */,
 				F8B2BBD0263EFD11002F741A /* SuppliersCoordinator.swift in Sources */,
 				F8ED5C3226373EDD00E3860D /* NavigationCoordinator.swift in Sources */,
@@ -372,7 +420,9 @@
 				F8ED5C2F26373EC200E3860D /* Coordinator.swift in Sources */,
 				F8B2BBE2263EFDAA002F741A /* GoodsViewController.swift in Sources */,
 				F8B2BBD5263EFD40002F741A /* UserAccountCoordinator.swift in Sources */,
+				F8B2BBFA263F0F50002F741A /* UIColor + Extensions.swift in Sources */,
 				F8B2BBA9263EE8AC002F741A /* Presentable.swift in Sources */,
+				F8B2BBEE263F024D002F741A /* AuthView.swift in Sources */,
 				F8B2BBDF263EFD91002F741A /* UserAccountViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
