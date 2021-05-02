@@ -1,19 +1,19 @@
 import UIKit
 
 public extension UITabBarItem {
-    static let jobsTab = UITabBarItem(title: "Statuses",
-                                      image: nil,
-                                      selectedImage: nil)
+    static let jobsTab = UITabBarItem(title: "Заказы",
+                                      image: UIImage.statusesTabIcon,
+                                      selectedImage: UIImage.statusesTabIcon)
     
-    static let supplierTab = UITabBarItem(title: "Suppliers",
-                                      image: nil,
-                                      selectedImage: nil)
+    static let supplierTab = UITabBarItem(title: "Поставщики",
+                                      image: UIImage.suppliersTabIcon,
+                                      selectedImage: UIImage.suppliersTabIcon)
     
-    static let goodsTab = UITabBarItem(title: "Goods",
-                                      image: nil,
-                                      selectedImage: nil)
+    static let goodsTab = UITabBarItem(title: "Справочник",
+                                      image: UIImage.goodsTabIcon,
+                                      selectedImage: UIImage.goodsTabIcon)
     
-    static let accountTab = UITabBarItem(title: "Account",
-                                      image: nil,
-                                      selectedImage: nil)
+    static let accountTab = UITabBarItem(title: "Аккаунт",
+                                      image: UIImage.accountTabIcon,
+                                      selectedImage: UIImage.accountTabIcon)
 }

@@ -1,10 +1,10 @@
 import UIKit
 
-class JobsRequestCoordinator: NavigationCoordinator, TabPresentable {
+class GoodsCoordinator: NavigationCoordinator, TabPresentable {
     let navigationController = BaseNavigationVC()
     
     var presentableTabBarItem: UITabBarItem {
-        return .jobsTab
+        return .goodsTab
     }
     
     func present() -> UIViewController {
@@ -13,9 +13,9 @@ class JobsRequestCoordinator: NavigationCoordinator, TabPresentable {
     
     init() {
         super.init(root: navigationController)
-        let statusesVC = StatusesViewController()
-        statusesVC.title = "Заказы"
-        push(statusesVC, animated: true)
+        let goodsVC = GoodsViewController()
+        goodsVC.title = "Справочник"
+        push(goodsVC, animated: true)
     }
     
     override init(coordinator: NavigationCoordinator) {

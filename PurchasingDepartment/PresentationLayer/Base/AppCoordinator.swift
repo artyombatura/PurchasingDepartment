@@ -18,7 +18,11 @@ class AppCoordinator: TabsCoordinator {
     
     private func mainFlow() {
         let jobsRequestCoordinator = JobsRequestCoordinator()
-        setTabs([jobsRequestCoordinator], animated: true)
+        let suppliersCoordinator = SuppliersCoordinator()
+        let goodsCoordinator = GoodsCoordinator()
+        let accountCoordinator = UserAccountCoordinator()
+        
+        setTabs([jobsRequestCoordinator, suppliersCoordinator, goodsCoordinator, accountCoordinator], animated: true)
         window?.rootViewController = tabBarController
         
         window?.makeKeyAndVisible()

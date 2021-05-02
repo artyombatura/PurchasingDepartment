@@ -15,6 +15,13 @@
 		F8B2BBC0263EF258002F741A /* JobsRequestCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B2BBBF263EF258002F741A /* JobsRequestCoordinator.swift */; };
 		F8B2BBC3263EF2AD002F741A /* BaseNavigationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B2BBC2263EF2AD002F741A /* BaseNavigationVC.swift */; };
 		F8B2BBC7263EF357002F741A /* StatusesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B2BBC6263EF357002F741A /* StatusesViewController.swift */; };
+		F8B2BBCD263EFC99002F741A /* UIImage + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B2BBCC263EFC99002F741A /* UIImage + Extensions.swift */; };
+		F8B2BBD0263EFD11002F741A /* SuppliersCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B2BBCF263EFD11002F741A /* SuppliersCoordinator.swift */; };
+		F8B2BBD5263EFD40002F741A /* UserAccountCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B2BBD4263EFD40002F741A /* UserAccountCoordinator.swift */; };
+		F8B2BBD9263EFD57002F741A /* GoodsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B2BBD8263EFD57002F741A /* GoodsCoordinator.swift */; };
+		F8B2BBDC263EFD69002F741A /* SuppliersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B2BBDB263EFD69002F741A /* SuppliersViewController.swift */; };
+		F8B2BBDF263EFD91002F741A /* UserAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B2BBDE263EFD91002F741A /* UserAccountViewController.swift */; };
+		F8B2BBE2263EFDAA002F741A /* GoodsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B2BBE1263EFDAA002F741A /* GoodsViewController.swift */; };
 		F8ED5C0F26373A9A00E3860D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ED5C0E26373A9A00E3860D /* AppDelegate.swift */; };
 		F8ED5C1826373A9C00E3860D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8ED5C1726373A9C00E3860D /* Assets.xcassets */; };
 		F8ED5C1B26373A9C00E3860D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8ED5C1926373A9C00E3860D /* LaunchScreen.storyboard */; };
@@ -35,6 +42,13 @@
 		F8B2BBBF263EF258002F741A /* JobsRequestCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsRequestCoordinator.swift; sourceTree = "<group>"; };
 		F8B2BBC2263EF2AD002F741A /* BaseNavigationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationVC.swift; sourceTree = "<group>"; };
 		F8B2BBC6263EF357002F741A /* StatusesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusesViewController.swift; sourceTree = "<group>"; };
+		F8B2BBCC263EFC99002F741A /* UIImage + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage + Extensions.swift"; sourceTree = "<group>"; };
+		F8B2BBCF263EFD11002F741A /* SuppliersCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuppliersCoordinator.swift; sourceTree = "<group>"; };
+		F8B2BBD4263EFD40002F741A /* UserAccountCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAccountCoordinator.swift; sourceTree = "<group>"; };
+		F8B2BBD8263EFD57002F741A /* GoodsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodsCoordinator.swift; sourceTree = "<group>"; };
+		F8B2BBDB263EFD69002F741A /* SuppliersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuppliersViewController.swift; sourceTree = "<group>"; };
+		F8B2BBDE263EFD91002F741A /* UserAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAccountViewController.swift; sourceTree = "<group>"; };
+		F8B2BBE1263EFDAA002F741A /* GoodsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodsViewController.swift; sourceTree = "<group>"; };
 		F8ED5C0B26373A9A00E3860D /* PurchasingDepartment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PurchasingDepartment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8ED5C0E26373A9A00E3860D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F8ED5C1726373A9C00E3860D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -80,7 +94,7 @@
 		F8B2BBAE263EEBEC002F741A /* JobRequestsModule */ = {
 			isa = PBXGroup;
 			children = (
-				F8B2BBC5263EF344002F741A /* StatusesViewController */,
+				F8B2BBC5263EF344002F741A /* StatusesMain */,
 				F8B2BBBF263EF258002F741A /* JobsRequestCoordinator.swift */,
 			);
 			path = JobRequestsModule;
@@ -89,6 +103,8 @@
 		F8B2BBAF263EEC22002F741A /* SuppliersModule */ = {
 			isa = PBXGroup;
 			children = (
+				F8B2BBD3263EFD29002F741A /* SuppliersMain */,
+				F8B2BBCF263EFD11002F741A /* SuppliersCoordinator.swift */,
 			);
 			path = SuppliersModule;
 			sourceTree = "<group>";
@@ -96,6 +112,8 @@
 		F8B2BBB0263EEC37002F741A /* UserAccountModule */ = {
 			isa = PBXGroup;
 			children = (
+				F8B2BBD4263EFD40002F741A /* UserAccountCoordinator.swift */,
+				F8B2BBDE263EFD91002F741A /* UserAccountViewController.swift */,
 			);
 			path = UserAccountModule;
 			sourceTree = "<group>";
@@ -103,6 +121,8 @@
 		F8B2BBB1263EEC49002F741A /* GoodsModule */ = {
 			isa = PBXGroup;
 			children = (
+				F8B2BBD8263EFD57002F741A /* GoodsCoordinator.swift */,
+				F8B2BBE1263EFDAA002F741A /* GoodsViewController.swift */,
 			);
 			path = GoodsModule;
 			sourceTree = "<group>";
@@ -118,16 +138,25 @@
 			isa = PBXGroup;
 			children = (
 				F8B2BBBC263EF1AA002F741A /* UITabBarItem + Extensions.swift */,
+				F8B2BBCC263EFC99002F741A /* UIImage + Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		F8B2BBC5263EF344002F741A /* StatusesViewController */ = {
+		F8B2BBC5263EF344002F741A /* StatusesMain */ = {
 			isa = PBXGroup;
 			children = (
 				F8B2BBC6263EF357002F741A /* StatusesViewController.swift */,
 			);
-			path = StatusesViewController;
+			path = StatusesMain;
+			sourceTree = "<group>";
+		};
+		F8B2BBD3263EFD29002F741A /* SuppliersMain */ = {
+			isa = PBXGroup;
+			children = (
+				F8B2BBDB263EFD69002F741A /* SuppliersViewController.swift */,
+			);
+			path = SuppliersMain;
 			sourceTree = "<group>";
 		};
 		F8ED5C0226373A9A00E3860D = {
@@ -327,17 +356,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				F8B2BBC7263EF357002F741A /* StatusesViewController.swift in Sources */,
+				F8B2BBD9263EFD57002F741A /* GoodsCoordinator.swift in Sources */,
 				F8ED5C3526373EEB00E3860D /* TabsCoordinator.swift in Sources */,
 				F8B2BBC3263EF2AD002F741A /* BaseNavigationVC.swift in Sources */,
 				F8ED5C3A26373F1400E3860D /* AppContext.swift in Sources */,
 				F8ED5C0F26373A9A00E3860D /* AppDelegate.swift in Sources */,
+				F8B2BBDC263EFD69002F741A /* SuppliersViewController.swift in Sources */,
 				F8B2BBBD263EF1AA002F741A /* UITabBarItem + Extensions.swift in Sources */,
+				F8B2BBCD263EFC99002F741A /* UIImage + Extensions.swift in Sources */,
 				F8B2BBAC263EEBE5002F741A /* AppCoordinator.swift in Sources */,
+				F8B2BBD0263EFD11002F741A /* SuppliersCoordinator.swift in Sources */,
 				F8ED5C3226373EDD00E3860D /* NavigationCoordinator.swift in Sources */,
 				F8B2BBB8263EF06D002F741A /* MainTabsViewController.swift in Sources */,
 				F8B2BBC0263EF258002F741A /* JobsRequestCoordinator.swift in Sources */,
 				F8ED5C2F26373EC200E3860D /* Coordinator.swift in Sources */,
+				F8B2BBE2263EFDAA002F741A /* GoodsViewController.swift in Sources */,
+				F8B2BBD5263EFD40002F741A /* UserAccountCoordinator.swift in Sources */,
 				F8B2BBA9263EE8AC002F741A /* Presentable.swift in Sources */,
+				F8B2BBDF263EFD91002F741A /* UserAccountViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
