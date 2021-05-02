@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		D8CDEA0054A41E1B5780F339 /* Pods_PurchasingDepartment.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEC60FB45A2EE9552F02589A /* Pods_PurchasingDepartment.framework */; };
+		F8B2BBA9263EE8AC002F741A /* Presentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B2BBA8263EE8AC002F741A /* Presentable.swift */; };
+		F8B2BBAC263EEBE5002F741A /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B2BBAB263EEBE5002F741A /* AppCoordinator.swift */; };
+		F8B2BBB8263EF06D002F741A /* MainTabsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B2BBB7263EF06D002F741A /* MainTabsViewController.swift */; };
+		F8B2BBBD263EF1AA002F741A /* UITabBarItem + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B2BBBC263EF1AA002F741A /* UITabBarItem + Extensions.swift */; };
+		F8B2BBC0263EF258002F741A /* JobsRequestCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B2BBBF263EF258002F741A /* JobsRequestCoordinator.swift */; };
+		F8B2BBC3263EF2AD002F741A /* BaseNavigationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B2BBC2263EF2AD002F741A /* BaseNavigationVC.swift */; };
+		F8B2BBC7263EF357002F741A /* StatusesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B2BBC6263EF357002F741A /* StatusesViewController.swift */; };
 		F8ED5C0F26373A9A00E3860D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ED5C0E26373A9A00E3860D /* AppDelegate.swift */; };
 		F8ED5C1126373A9A00E3860D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ED5C1026373A9A00E3860D /* SceneDelegate.swift */; };
 		F8ED5C1826373A9C00E3860D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8ED5C1726373A9C00E3860D /* Assets.xcassets */; };
@@ -22,6 +29,13 @@
 /* Begin PBXFileReference section */
 		0FB4B4A5B6752DF695BBB2DF /* Pods-PurchasingDepartment.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PurchasingDepartment.debug.xcconfig"; path = "Target Support Files/Pods-PurchasingDepartment/Pods-PurchasingDepartment.debug.xcconfig"; sourceTree = "<group>"; };
 		D3821798329F421FE89E4E09 /* Pods-PurchasingDepartment.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PurchasingDepartment.release.xcconfig"; path = "Target Support Files/Pods-PurchasingDepartment/Pods-PurchasingDepartment.release.xcconfig"; sourceTree = "<group>"; };
+		F8B2BBA8263EE8AC002F741A /* Presentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presentable.swift; sourceTree = "<group>"; };
+		F8B2BBAB263EEBE5002F741A /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		F8B2BBB7263EF06D002F741A /* MainTabsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabsViewController.swift; sourceTree = "<group>"; };
+		F8B2BBBC263EF1AA002F741A /* UITabBarItem + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBarItem + Extensions.swift"; sourceTree = "<group>"; };
+		F8B2BBBF263EF258002F741A /* JobsRequestCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsRequestCoordinator.swift; sourceTree = "<group>"; };
+		F8B2BBC2263EF2AD002F741A /* BaseNavigationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationVC.swift; sourceTree = "<group>"; };
+		F8B2BBC6263EF357002F741A /* StatusesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusesViewController.swift; sourceTree = "<group>"; };
 		F8ED5C0B26373A9A00E3860D /* PurchasingDepartment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PurchasingDepartment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8ED5C0E26373A9A00E3860D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F8ED5C1026373A9A00E3860D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -65,6 +79,59 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		F8B2BBAE263EEBEC002F741A /* JobRequestsModule */ = {
+			isa = PBXGroup;
+			children = (
+				F8B2BBC5263EF344002F741A /* StatusesViewController */,
+				F8B2BBBF263EF258002F741A /* JobsRequestCoordinator.swift */,
+			);
+			path = JobRequestsModule;
+			sourceTree = "<group>";
+		};
+		F8B2BBAF263EEC22002F741A /* SuppliersModule */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SuppliersModule;
+			sourceTree = "<group>";
+		};
+		F8B2BBB0263EEC37002F741A /* UserAccountModule */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UserAccountModule;
+			sourceTree = "<group>";
+		};
+		F8B2BBB1263EEC49002F741A /* GoodsModule */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = GoodsModule;
+			sourceTree = "<group>";
+		};
+		F8B2BBBA263EF123002F741A /* AuthorizationModule */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = AuthorizationModule;
+			sourceTree = "<group>";
+		};
+		F8B2BBBB263EF17F002F741A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F8B2BBBC263EF1AA002F741A /* UITabBarItem + Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		F8B2BBC5263EF344002F741A /* StatusesViewController */ = {
+			isa = PBXGroup;
+			children = (
+				F8B2BBC6263EF357002F741A /* StatusesViewController.swift */,
+			);
+			path = StatusesViewController;
+			sourceTree = "<group>";
+		};
 		F8ED5C0226373A9A00E3860D = {
 			isa = PBXGroup;
 			children = (
@@ -97,9 +164,15 @@
 		F8ED5C2A26373BA300E3860D /* PresentationLayer */ = {
 			isa = PBXGroup;
 			children = (
+				F8B2BBBA263EF123002F741A /* AuthorizationModule */,
+				F8B2BBB1263EEC49002F741A /* GoodsModule */,
+				F8B2BBB0263EEC37002F741A /* UserAccountModule */,
+				F8B2BBAF263EEC22002F741A /* SuppliersModule */,
+				F8B2BBAE263EEBEC002F741A /* JobRequestsModule */,
 				F8ED5C2D26373D4C00E3860D /* Base */,
 				F8ED5C0E26373A9A00E3860D /* AppDelegate.swift */,
 				F8ED5C1026373A9A00E3860D /* SceneDelegate.swift */,
+				F8B2BBBB263EF17F002F741A /* Extensions */,
 			);
 			path = PresentationLayer;
 			sourceTree = "<group>";
@@ -127,6 +200,10 @@
 				F8ED5C3C26373F1C00E3860D /* PresentationLayer */,
 				F8ED5C3826373F0300E3860D /* AppContext */,
 				F8ED5C3726373EF600E3860D /* Coordinator */,
+				F8B2BBA8263EE8AC002F741A /* Presentable.swift */,
+				F8B2BBAB263EEBE5002F741A /* AppCoordinator.swift */,
+				F8B2BBB7263EF06D002F741A /* MainTabsViewController.swift */,
+				F8B2BBC2263EF2AD002F741A /* BaseNavigationVC.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -252,12 +329,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8B2BBC7263EF357002F741A /* StatusesViewController.swift in Sources */,
 				F8ED5C3526373EEB00E3860D /* TabsCoordinator.swift in Sources */,
+				F8B2BBC3263EF2AD002F741A /* BaseNavigationVC.swift in Sources */,
 				F8ED5C3A26373F1400E3860D /* AppContext.swift in Sources */,
 				F8ED5C0F26373A9A00E3860D /* AppDelegate.swift in Sources */,
 				F8ED5C1126373A9A00E3860D /* SceneDelegate.swift in Sources */,
+				F8B2BBBD263EF1AA002F741A /* UITabBarItem + Extensions.swift in Sources */,
+				F8B2BBAC263EEBE5002F741A /* AppCoordinator.swift in Sources */,
 				F8ED5C3226373EDD00E3860D /* NavigationCoordinator.swift in Sources */,
+				F8B2BBB8263EF06D002F741A /* MainTabsViewController.swift in Sources */,
+				F8B2BBC0263EF258002F741A /* JobsRequestCoordinator.swift in Sources */,
 				F8ED5C2F26373EC200E3860D /* Coordinator.swift in Sources */,
+				F8B2BBA9263EE8AC002F741A /* Presentable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -399,7 +483,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3TG9F8VMYJ;
-				INFOPLIST_FILE = PurchasingDepartment/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/PurchasingDepartment/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -419,7 +503,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3TG9F8VMYJ;
-				INFOPLIST_FILE = PurchasingDepartment/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/PurchasingDepartment/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
