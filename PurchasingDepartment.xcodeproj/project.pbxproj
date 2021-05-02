@@ -16,7 +16,6 @@
 		F8B2BBC3263EF2AD002F741A /* BaseNavigationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B2BBC2263EF2AD002F741A /* BaseNavigationVC.swift */; };
 		F8B2BBC7263EF357002F741A /* StatusesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B2BBC6263EF357002F741A /* StatusesViewController.swift */; };
 		F8ED5C0F26373A9A00E3860D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ED5C0E26373A9A00E3860D /* AppDelegate.swift */; };
-		F8ED5C1126373A9A00E3860D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ED5C1026373A9A00E3860D /* SceneDelegate.swift */; };
 		F8ED5C1826373A9C00E3860D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8ED5C1726373A9C00E3860D /* Assets.xcassets */; };
 		F8ED5C1B26373A9C00E3860D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8ED5C1926373A9C00E3860D /* LaunchScreen.storyboard */; };
 		F8ED5C2726373B4400E3860D /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = F8ED5C2626373B4400E3860D /* .gitignore */; };
@@ -38,7 +37,6 @@
 		F8B2BBC6263EF357002F741A /* StatusesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusesViewController.swift; sourceTree = "<group>"; };
 		F8ED5C0B26373A9A00E3860D /* PurchasingDepartment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PurchasingDepartment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8ED5C0E26373A9A00E3860D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F8ED5C1026373A9A00E3860D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		F8ED5C1726373A9C00E3860D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F8ED5C1A26373A9C00E3860D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F8ED5C1C26373A9C00E3860D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -171,7 +169,6 @@
 				F8B2BBAE263EEBEC002F741A /* JobRequestsModule */,
 				F8ED5C2D26373D4C00E3860D /* Base */,
 				F8ED5C0E26373A9A00E3860D /* AppDelegate.swift */,
-				F8ED5C1026373A9A00E3860D /* SceneDelegate.swift */,
 				F8B2BBBB263EF17F002F741A /* Extensions */,
 			);
 			path = PresentationLayer;
@@ -334,7 +331,6 @@
 				F8B2BBC3263EF2AD002F741A /* BaseNavigationVC.swift in Sources */,
 				F8ED5C3A26373F1400E3860D /* AppContext.swift in Sources */,
 				F8ED5C0F26373A9A00E3860D /* AppDelegate.swift in Sources */,
-				F8ED5C1126373A9A00E3860D /* SceneDelegate.swift in Sources */,
 				F8B2BBBD263EF1AA002F741A /* UITabBarItem + Extensions.swift in Sources */,
 				F8B2BBAC263EEBE5002F741A /* AppCoordinator.swift in Sources */,
 				F8ED5C3226373EDD00E3860D /* NavigationCoordinator.swift in Sources */,

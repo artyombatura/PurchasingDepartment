@@ -11,7 +11,7 @@ class AppCoordinator: TabsCoordinator {
     }
 
     override func start(_ animated: Bool) {
-        
+        mainFlow()
     }
     
     // MARK: - Private
