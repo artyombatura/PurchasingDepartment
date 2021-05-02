@@ -6,5 +6,6 @@ target 'PurchasingDepartment' do
   use_frameworks!
 
   # Pods for PurchasingDepartment
+  pod 'SnapKit', '~> 5.0.0'
 
 end
