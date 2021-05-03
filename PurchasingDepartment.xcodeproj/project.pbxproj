@@ -34,6 +34,11 @@
 		F8B4F2AF26406F6900E41FF1 /* BaseScrollableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B4F2AE26406F6900E41FF1 /* BaseScrollableView.swift */; };
 		F8B4F2B226406FA000E41FF1 /* UserAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B4F2B126406FA000E41FF1 /* UserAccountView.swift */; };
 		F8B4F2B52640717200E41FF1 /* UIFont + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B4F2B42640717200E41FF1 /* UIFont + Extensions.swift */; };
+		F8B4F2BA2640842300E41FF1 /* ProductCatalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B4F2B92640842300E41FF1 /* ProductCatalog.swift */; };
+		F8B4F2BD2640848D00E41FF1 /* GoodsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B4F2BC2640848D00E41FF1 /* GoodsTableViewCell.swift */; };
+		F8B4F2C02640890200E41FF1 /* Supplier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B4F2BF2640890200E41FF1 /* Supplier.swift */; };
+		F8B4F2C426408B0500E41FF1 /* SupplierDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B4F2C326408B0500E41FF1 /* SupplierDetailsViewController.swift */; };
+		F8B4F2C826408B0D00E41FF1 /* SupplierDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B4F2C726408B0D00E41FF1 /* SupplierDetailsView.swift */; };
 		F8ED5C0F26373A9A00E3860D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ED5C0E26373A9A00E3860D /* AppDelegate.swift */; };
 		F8ED5C1826373A9C00E3860D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8ED5C1726373A9C00E3860D /* Assets.xcassets */; };
 		F8ED5C1B26373A9C00E3860D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8ED5C1926373A9C00E3860D /* LaunchScreen.storyboard */; };
@@ -73,6 +78,11 @@
 		F8B4F2AE26406F6900E41FF1 /* BaseScrollableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseScrollableView.swift; sourceTree = "<group>"; };
 		F8B4F2B126406FA000E41FF1 /* UserAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAccountView.swift; sourceTree = "<group>"; };
 		F8B4F2B42640717200E41FF1 /* UIFont + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont + Extensions.swift"; sourceTree = "<group>"; };
+		F8B4F2B92640842300E41FF1 /* ProductCatalog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCatalog.swift; sourceTree = "<group>"; };
+		F8B4F2BC2640848D00E41FF1 /* GoodsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodsTableViewCell.swift; sourceTree = "<group>"; };
+		F8B4F2BF2640890200E41FF1 /* Supplier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Supplier.swift; sourceTree = "<group>"; };
+		F8B4F2C326408B0500E41FF1 /* SupplierDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupplierDetailsViewController.swift; sourceTree = "<group>"; };
+		F8B4F2C726408B0D00E41FF1 /* SupplierDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupplierDetailsView.swift; sourceTree = "<group>"; };
 		F8ED5C0B26373A9A00E3860D /* PurchasingDepartment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PurchasingDepartment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8ED5C0E26373A9A00E3860D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F8ED5C1726373A9C00E3860D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -127,6 +137,7 @@
 		F8B2BBAF263EEC22002F741A /* SuppliersModule */ = {
 			isa = PBXGroup;
 			children = (
+				F8B4F2C226408AEF00E41FF1 /* SupplierDetails */,
 				F8B2BBD3263EFD29002F741A /* SuppliersMain */,
 				F8B2BBCF263EFD11002F741A /* SuppliersCoordinator.swift */,
 			);
@@ -148,6 +159,7 @@
 			children = (
 				F8B2BBD8263EFD57002F741A /* GoodsCoordinator.swift */,
 				F8B2BBE1263EFDAA002F741A /* GoodsViewController.swift */,
+				F8B4F2BC2640848D00E41FF1 /* GoodsTableViewCell.swift */,
 			);
 			path = GoodsModule;
 			sourceTree = "<group>";
@@ -201,6 +213,8 @@
 			isa = PBXGroup;
 			children = (
 				F8B4F2A62640663F00E41FF1 /* User.swift */,
+				F8B4F2B92640842300E41FF1 /* ProductCatalog.swift */,
+				F8B4F2BF2640890200E41FF1 /* Supplier.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -211,6 +225,15 @@
 				F8B4F2AA2640674500E41FF1 /* UserDefaultsWrapper.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		F8B4F2C226408AEF00E41FF1 /* SupplierDetails */ = {
+			isa = PBXGroup;
+			children = (
+				F8B4F2C326408B0500E41FF1 /* SupplierDetailsViewController.swift */,
+				F8B4F2C726408B0D00E41FF1 /* SupplierDetailsView.swift */,
+			);
+			path = SupplierDetails;
 			sourceTree = "<group>";
 		};
 		F8ED5C0226373A9A00E3860D = {
@@ -426,6 +449,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F8B4F2AB2640674500E41FF1 /* UserDefaultsWrapper.swift in Sources */,
+				F8B4F2BD2640848D00E41FF1 /* GoodsTableViewCell.swift in Sources */,
 				F8B2BBC7263EF357002F741A /* StatusesViewController.swift in Sources */,
 				F8B4F2B52640717200E41FF1 /* UIFont + Extensions.swift in Sources */,
 				F8B2BBD9263EFD57002F741A /* GoodsCoordinator.swift in Sources */,
@@ -436,6 +460,8 @@
 				F8B4F2A72640663F00E41FF1 /* User.swift in Sources */,
 				F8ED5C3A26373F1400E3860D /* AppContext.swift in Sources */,
 				F8B4F2A3264065D700E41FF1 /* UserService.swift in Sources */,
+				F8B4F2BA2640842300E41FF1 /* ProductCatalog.swift in Sources */,
+				F8B4F2C826408B0D00E41FF1 /* SupplierDetailsView.swift in Sources */,
 				F8ED5C0F26373A9A00E3860D /* AppDelegate.swift in Sources */,
 				F8B2BBF7263F0DFA002F741A /* UnderlinedStateableTextField.swift in Sources */,
 				F8B2BBE7263F01FD002F741A /* AuthorizationCoordinator.swift in Sources */,
@@ -452,7 +478,9 @@
 				F8ED5C2F26373EC200E3860D /* Coordinator.swift in Sources */,
 				F8B2BBE2263EFDAA002F741A /* GoodsViewController.swift in Sources */,
 				F8B2BBD5263EFD40002F741A /* UserAccountCoordinator.swift in Sources */,
+				F8B4F2C02640890200E41FF1 /* Supplier.swift in Sources */,
 				F8B2BBFA263F0F50002F741A /* UIColor + Extensions.swift in Sources */,
+				F8B4F2C426408B0500E41FF1 /* SupplierDetailsViewController.swift in Sources */,
 				F8B2BBA9263EE8AC002F741A /* Presentable.swift in Sources */,
 				F8B2BBEE263F024D002F741A /* AuthView.swift in Sources */,
 				F8B2BBDF263EFD91002F741A /* UserAccountViewController.swift in Sources */,
