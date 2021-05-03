@@ -1,14 +1,9 @@
 import UIKit
 
 class AppCoordinator: TabsCoordinator {
-    enum Flow {
-        case auth
-        case main
-    }
-    
     let window: UIWindow?
     
-    var selectedFlow: Flow?
+    var context: AppContext = AppContext()
     
     private let tabBarController = MainTabsViewController()
     
@@ -18,25 +13,16 @@ class AppCoordinator: TabsCoordinator {
     }
 
     override func start(_ animated: Bool) {
-        guard let flow = selectedFlow else {
-            authFlow()
-            return
-        }
-        switch flow {
-        case .auth:
-            authFlow()
-        case .main:
-            mainFlow()
-        }
+        context.userService.isAuthorized ? mainFlow() : authFlow()
     }
     
     // MARK: - Private
     
     private func mainFlow() {
-        let jobsRequestCoordinator = JobsRequestCoordinator()
-        let suppliersCoordinator = SuppliersCoordinator()
-        let goodsCoordinator = GoodsCoordinator()
-        let accountCoordinator = UserAccountCoordinator()
+        let jobsRequestCoordinator = JobsRequestCoordinator(context: context)
+        let suppliersCoordinator = SuppliersCoordinator(context: context)
+        let goodsCoordinator = GoodsCoordinator(context: context)
+        let accountCoordinator = UserAccountCoordinator(context: context)
         
         setTabs([jobsRequestCoordinator, suppliersCoordinator, goodsCoordinator, accountCoordinator], animated: true)
         window?.rootViewController = tabBarController
@@ -45,7 +31,7 @@ class AppCoordinator: TabsCoordinator {
     }
     
     private func authFlow() {
-        let authCoordinator = AuthorizationCoordinator()
+        let authCoordinator = AuthorizationCoordinator(context: context)
         window?.rootViewController = authCoordinator.present()
         window?.makeKeyAndVisible()
     }

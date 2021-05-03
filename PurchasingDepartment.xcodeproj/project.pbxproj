@@ -26,8 +26,14 @@
 		F8B2BBEB263F0235002F741A /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B2BBEA263F0235002F741A /* AuthViewController.swift */; };
 		F8B2BBEE263F024D002F741A /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B2BBED263F024D002F741A /* AuthView.swift */; };
 		F8B2BBF4263F0B78002F741A /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B2BBF3263F0B78002F741A /* ActionButton.swift */; };
-		F8B2BBF7263F0DFA002F741A /* UnderlinedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B2BBF6263F0DFA002F741A /* UnderlinedTextField.swift */; };
+		F8B2BBF7263F0DFA002F741A /* UnderlinedStateableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B2BBF6263F0DFA002F741A /* UnderlinedStateableTextField.swift */; };
 		F8B2BBFA263F0F50002F741A /* UIColor + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B2BBF9263F0F50002F741A /* UIColor + Extensions.swift */; };
+		F8B4F2A3264065D700E41FF1 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B4F2A2264065D700E41FF1 /* UserService.swift */; };
+		F8B4F2A72640663F00E41FF1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B4F2A62640663F00E41FF1 /* User.swift */; };
+		F8B4F2AB2640674500E41FF1 /* UserDefaultsWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B4F2AA2640674500E41FF1 /* UserDefaultsWrapper.swift */; };
+		F8B4F2AF26406F6900E41FF1 /* BaseScrollableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B4F2AE26406F6900E41FF1 /* BaseScrollableView.swift */; };
+		F8B4F2B226406FA000E41FF1 /* UserAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B4F2B126406FA000E41FF1 /* UserAccountView.swift */; };
+		F8B4F2B52640717200E41FF1 /* UIFont + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B4F2B42640717200E41FF1 /* UIFont + Extensions.swift */; };
 		F8ED5C0F26373A9A00E3860D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ED5C0E26373A9A00E3860D /* AppDelegate.swift */; };
 		F8ED5C1826373A9C00E3860D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8ED5C1726373A9C00E3860D /* Assets.xcassets */; };
 		F8ED5C1B26373A9C00E3860D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8ED5C1926373A9C00E3860D /* LaunchScreen.storyboard */; };
@@ -59,8 +65,14 @@
 		F8B2BBEA263F0235002F741A /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		F8B2BBED263F024D002F741A /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
 		F8B2BBF3263F0B78002F741A /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
-		F8B2BBF6263F0DFA002F741A /* UnderlinedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderlinedTextField.swift; sourceTree = "<group>"; };
+		F8B2BBF6263F0DFA002F741A /* UnderlinedStateableTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderlinedStateableTextField.swift; sourceTree = "<group>"; };
 		F8B2BBF9263F0F50002F741A /* UIColor + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + Extensions.swift"; sourceTree = "<group>"; };
+		F8B4F2A2264065D700E41FF1 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		F8B4F2A62640663F00E41FF1 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		F8B4F2AA2640674500E41FF1 /* UserDefaultsWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsWrapper.swift; sourceTree = "<group>"; };
+		F8B4F2AE26406F6900E41FF1 /* BaseScrollableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseScrollableView.swift; sourceTree = "<group>"; };
+		F8B4F2B126406FA000E41FF1 /* UserAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAccountView.swift; sourceTree = "<group>"; };
+		F8B4F2B42640717200E41FF1 /* UIFont + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont + Extensions.swift"; sourceTree = "<group>"; };
 		F8ED5C0B26373A9A00E3860D /* PurchasingDepartment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PurchasingDepartment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8ED5C0E26373A9A00E3860D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F8ED5C1726373A9C00E3860D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -126,6 +138,7 @@
 			children = (
 				F8B2BBD4263EFD40002F741A /* UserAccountCoordinator.swift */,
 				F8B2BBDE263EFD91002F741A /* UserAccountViewController.swift */,
+				F8B4F2B126406FA000E41FF1 /* UserAccountView.swift */,
 			);
 			path = UserAccountModule;
 			sourceTree = "<group>";
@@ -154,6 +167,7 @@
 				F8B2BBBC263EF1AA002F741A /* UITabBarItem + Extensions.swift */,
 				F8B2BBCC263EFC99002F741A /* UIImage + Extensions.swift */,
 				F8B2BBF9263F0F50002F741A /* UIColor + Extensions.swift */,
+				F8B4F2B42640717200E41FF1 /* UIFont + Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -183,6 +197,22 @@
 			path = AuthMain;
 			sourceTree = "<group>";
 		};
+		F8B4F2A52640662700E41FF1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F8B4F2A62640663F00E41FF1 /* User.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F8B4F2A92640673200E41FF1 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				F8B4F2AA2640674500E41FF1 /* UserDefaultsWrapper.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		F8ED5C0226373A9A00E3860D = {
 			isa = PBXGroup;
 			children = (
@@ -207,6 +237,8 @@
 			children = (
 				F8ED5C2A26373BA300E3860D /* PresentationLayer */,
 				F8ED5C2C26373BCD00E3860D /* Service */,
+				F8B4F2A52640662700E41FF1 /* Model */,
+				F8B4F2A92640673200E41FF1 /* Helpers */,
 				F8ED5C2B26373BBD00E3860D /* Resources */,
 			);
 			path = PurchasingDepartment;
@@ -240,6 +272,8 @@
 		F8ED5C2C26373BCD00E3860D /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				F8ED5C3926373F1400E3860D /* AppContext.swift */,
+				F8B4F2A2264065D700E41FF1 /* UserService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -248,7 +282,6 @@
 			isa = PBXGroup;
 			children = (
 				F8ED5C3C26373F1C00E3860D /* PresentationLayer */,
-				F8ED5C3826373F0300E3860D /* AppContext */,
 				F8ED5C3726373EF600E3860D /* Coordinator */,
 				F8B2BBA8263EE8AC002F741A /* Presentable.swift */,
 				F8B2BBAB263EEBE5002F741A /* AppCoordinator.swift */,
@@ -268,19 +301,12 @@
 			path = Coordinator;
 			sourceTree = "<group>";
 		};
-		F8ED5C3826373F0300E3860D /* AppContext */ = {
-			isa = PBXGroup;
-			children = (
-				F8ED5C3926373F1400E3860D /* AppContext.swift */,
-			);
-			path = AppContext;
-			sourceTree = "<group>";
-		};
 		F8ED5C3C26373F1C00E3860D /* PresentationLayer */ = {
 			isa = PBXGroup;
 			children = (
 				F8B2BBF3263F0B78002F741A /* ActionButton.swift */,
-				F8B2BBF6263F0DFA002F741A /* UnderlinedTextField.swift */,
+				F8B2BBF6263F0DFA002F741A /* UnderlinedStateableTextField.swift */,
+				F8B4F2AE26406F6900E41FF1 /* BaseScrollableView.swift */,
 			);
 			path = PresentationLayer;
 			sourceTree = "<group>";
@@ -399,16 +425,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8B4F2AB2640674500E41FF1 /* UserDefaultsWrapper.swift in Sources */,
 				F8B2BBC7263EF357002F741A /* StatusesViewController.swift in Sources */,
+				F8B4F2B52640717200E41FF1 /* UIFont + Extensions.swift in Sources */,
 				F8B2BBD9263EFD57002F741A /* GoodsCoordinator.swift in Sources */,
+				F8B4F2B226406FA000E41FF1 /* UserAccountView.swift in Sources */,
 				F8ED5C3526373EEB00E3860D /* TabsCoordinator.swift in Sources */,
 				F8B2BBC3263EF2AD002F741A /* BaseNavigationVC.swift in Sources */,
 				F8B2BBF4263F0B78002F741A /* ActionButton.swift in Sources */,
+				F8B4F2A72640663F00E41FF1 /* User.swift in Sources */,
 				F8ED5C3A26373F1400E3860D /* AppContext.swift in Sources */,
+				F8B4F2A3264065D700E41FF1 /* UserService.swift in Sources */,
 				F8ED5C0F26373A9A00E3860D /* AppDelegate.swift in Sources */,
-				F8B2BBF7263F0DFA002F741A /* UnderlinedTextField.swift in Sources */,
+				F8B2BBF7263F0DFA002F741A /* UnderlinedStateableTextField.swift in Sources */,
 				F8B2BBE7263F01FD002F741A /* AuthorizationCoordinator.swift in Sources */,
 				F8B2BBDC263EFD69002F741A /* SuppliersViewController.swift in Sources */,
+				F8B4F2AF26406F6900E41FF1 /* BaseScrollableView.swift in Sources */,
 				F8B2BBBD263EF1AA002F741A /* UITabBarItem + Extensions.swift in Sources */,
 				F8B2BBCD263EFC99002F741A /* UIImage + Extensions.swift in Sources */,
 				F8B2BBEB263F0235002F741A /* AuthViewController.swift in Sources */,

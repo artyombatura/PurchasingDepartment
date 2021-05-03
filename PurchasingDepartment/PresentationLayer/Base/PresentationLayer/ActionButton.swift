@@ -18,6 +18,7 @@ class ActionButton: UIButton {
     init() {
         super.init(frame: .zero)
         addTarget(self, action: #selector(onTap), for: .touchUpInside)
+        self.backgroundColor = UIColor.appDefaultColor
     }
     
     required init?(coder: NSCoder) {

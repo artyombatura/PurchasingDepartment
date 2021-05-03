@@ -1,7 +1,12 @@
 import UIKit
 import SnapKit
 
-class UnderlinedTextField: UITextField {
+class UnderlinedStateableTextField: UITextField {
+    
+    enum State {
+        case notEditable
+        case editable
+    }
     
     var lineColor: UIColor = .underlineTextFieldColor {
         didSet {
@@ -17,6 +22,19 @@ class UnderlinedTextField: UITextField {
         }
     }
     
+    var tfState: State = .editable {
+        didSet {
+            switch tfState {
+            case .notEditable:
+                self.textColor = .lightGray
+                self.isUserInteractionEnabled = false
+            case .editable:
+                self.textColor = .black
+                self.isUserInteractionEnabled = true
+            }
+        }
+    }
+    
     private lazy var lineView: UIView = {
         let line = UIView()
         line.backgroundColor = lineColor
@@ -26,6 +44,7 @@ class UnderlinedTextField: UITextField {
     init() {
         super.init(frame: .zero)
         setupUI()
+        configure()
     }
     
     required init?(coder: NSCoder) {
@@ -40,5 +59,9 @@ class UnderlinedTextField: UITextField {
             $0.bottom.leading.trailing.equalToSuperview()
             $0.height.equalTo(lineHeight)
         }
+    }
+    
+    private func configure() {
+        self.font = UIFont.app16Font
     }
 }

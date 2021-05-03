@@ -2,13 +2,16 @@ import UIKit
 
 class NavigationCoordinator: Coordinator {
     private let rootController: UINavigationController
+    let context: AppContext
     
-    init(root controller: UINavigationController) {
+    init(context: AppContext, root controller: UINavigationController) {
+        self.context = context
         rootController = controller
         super.init(root: controller)
     }
     
     init(coordinator: NavigationCoordinator) {
+        context = coordinator.context
         rootController = coordinator.rootController
         super.init(coordinator: coordinator)
     }

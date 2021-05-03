@@ -11,9 +11,9 @@ class UserAccountCoordinator: NavigationCoordinator, TabPresentable {
         return navigationController
     }
     
-    init() {
-        super.init(root: navigationController)
-        let accountVC = UserAccountViewController()
+    init(context: AppContext) {
+        super.init(context: context, root: navigationController)
+        let accountVC = UserAccountViewController(context: context)
         accountVC.title = "Аккаунт"
         push(accountVC, animated: true)
     }

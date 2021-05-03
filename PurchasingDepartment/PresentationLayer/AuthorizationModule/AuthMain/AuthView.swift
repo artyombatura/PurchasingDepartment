@@ -10,14 +10,14 @@ class AuthView: UIView {
     weak var delegate: AuthViewDelegate?
     
     // MARK: - Subviews
-    private lazy var loginTextField: UnderlinedTextField = {
-        let tf = UnderlinedTextField()
+    private lazy var loginTextField: UnderlinedStateableTextField = {
+        let tf = UnderlinedStateableTextField()
         tf.placeholder = "Логин"
         return tf
     }()
     
-    private lazy var passwordTextField: UnderlinedTextField = {
-        let tf = UnderlinedTextField()
+    private lazy var passwordTextField: UnderlinedStateableTextField = {
+        let tf = UnderlinedStateableTextField()
         tf.placeholder = "Пароль"
         tf.isSecureTextEntry = true
         return tf

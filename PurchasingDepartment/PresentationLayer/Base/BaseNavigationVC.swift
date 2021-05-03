@@ -15,7 +15,7 @@ extension UIViewController: NavigationBarAppearance {
 /// Base navigation view coontroller
 open class BaseNavigationVC: UINavigationController {
     /// Navigation bar color
-    open var navigationBarColor: UIColor? = UIColor.blue {
+    open var navigationBarColor: UIColor? = UIColor.navBarColor {
         didSet {
             guard isViewLoaded else {
                 return
@@ -50,8 +50,8 @@ open class BaseNavigationVC: UINavigationController {
         navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white,
                                              .font: UIFont.systemFont(ofSize: 16, weight: .bold)]
 
-//        navigationBar.backIndicatorImage = UIImage.icArrowBack
-//        navigationBar.backIndicatorTransitionMaskImage = UIImage.icArrowBack
+        navigationBar.backIndicatorImage = UIImage.backButtonIcon
+        navigationBar.backIndicatorTransitionMaskImage = UIImage.backButtonIcon
         updateNavigationBarColor()
         delegate = self
         setupView()

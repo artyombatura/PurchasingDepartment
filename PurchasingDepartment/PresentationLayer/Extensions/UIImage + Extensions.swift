@@ -8,4 +8,8 @@ extension UIImage {
     static let suppliersTabIcon = UIImage(named: "suppliersTabIcon")
     static let goodsTabIcon = UIImage(named: "goodsTabIcon")
     static let accountTabIcon = UIImage(named: "accountTabIcon")
+    
+    // MARK: - Nav bar icons
+    static let backButtonIcon = UIImage(named: "icArrowBack")
+    static let logoutButtonIcon = UIImage(named: "logoutIcon")
 }
