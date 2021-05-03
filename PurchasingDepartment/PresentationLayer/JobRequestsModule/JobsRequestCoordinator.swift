@@ -11,8 +11,8 @@ class JobsRequestCoordinator: NavigationCoordinator, TabPresentable {
         return navigationController
     }
     
-    init() {
-        super.init(root: navigationController)
+    init(context: AppContext) {
+        super.init(context: context, root: navigationController)
         let statusesVC = StatusesViewController()
         statusesVC.title = "Заказы"
         push(statusesVC, animated: true)

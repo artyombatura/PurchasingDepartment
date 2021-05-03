@@ -7,9 +7,9 @@ class AuthorizationCoordinator: NavigationCoordinator {
         return navigationController
     }
     
-    init() {
-        super.init(root: navigationController)
-        let authVC = AuthViewController()
+    init(context: AppContext) {
+        super.init(context: context, root: navigationController)
+        let authVC = AuthViewController(context: context)
         authVC.title = "Авторизация"
         push(authVC, animated: true)
     }

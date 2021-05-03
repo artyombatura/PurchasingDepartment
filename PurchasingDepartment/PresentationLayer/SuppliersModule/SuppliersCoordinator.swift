@@ -11,8 +11,8 @@ class SuppliersCoordinator: NavigationCoordinator, TabPresentable {
         return navigationController
     }
     
-    init() {
-        super.init(root: navigationController)
+    init(context: AppContext) {
+        super.init(context: context, root: navigationController)
         let suppliersVC = SuppliersViewController()
         suppliersVC.title = "Поставщики"
         push(suppliersVC, animated: true)
