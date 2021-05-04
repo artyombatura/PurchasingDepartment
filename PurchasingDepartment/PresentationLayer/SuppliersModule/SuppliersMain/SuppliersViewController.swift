@@ -3,21 +3,13 @@ import UIKit
 class SuppliersViewController: UIViewController {
     
     var coordinator: SuppliersCoordinatorProtocol?
+    var context: AppContext
     
-    private var suppliers: [Supplier] = [
-        Supplier(name: "ООО Кот в говне", email: "govno_kursach@mail.ru", address: "ул. Хуй", phone: "228_1337_422"),
-        Supplier(name: "ООО Кот в говне", email: "govno_kursach@mail.ru", address: "ул. Хуй", phone: "228_1337_422"),
-        Supplier(name: "ООО Кот в говне", email: "govno_kursach@mail.ru", address: "ул. Хуй", phone: "228_1337_422"),
-        Supplier(name: "ООО Кот в говне", email: "govno_kursach@mail.ru", address: "ул. Хуй", phone: "228_1337_422"),
-        Supplier(name: "ООО Кот в говне", email: "govno_kursach@mail.ru", address: "ул. Хуй", phone: "228_1337_422"),
-        Supplier(name: "ООО Кот в говне", email: "govno_kursach@mail.ru", address: "ул. Хуй", phone: "228_1337_422"),
-        Supplier(name: "ООО Кот в говне", email: "govno_kursach@mail.ru", address: "ул. Хуй", phone: "228_1337_422"),
-        Supplier(name: "ООО Кот в говне", email: "govno_kursach@mail.ru", address: "ул. Хуй", phone: "228_1337_422"),
-        Supplier(name: "ООО Кот в говне", email: "govno_kursach@mail.ru", address: "ул. Хуй", phone: "228_1337_422"),
-        Supplier(name: "ООО Кот в говне", email: "govno_kursach@mail.ru", address: "ул. Хуй", phone: "228_1337_422"),
-        Supplier(name: "ООО Кот в говне", email: "govno_kursach@mail.ru", address: "ул. Хуй", phone: "228_1337_422"),
-        Supplier(name: "ООО Кот в говне", email: "govno_kursach@mail.ru", address: "ул. Хуй", phone: "228_1337_422")
-    ]
+    private var suppliers: [Supplier] = [] {
+        didSet {
+            tableView.reloadData()
+        }
+    }
     
     private lazy var tableView: UITableView = {
         let tv = UITableView()
@@ -26,8 +18,9 @@ class SuppliersViewController: UIViewController {
         return tv
     }()
     
-    init(coordinator: SuppliersCoordinatorProtocol) {
+    init(context: AppContext, coordinator: SuppliersCoordinatorProtocol) {
         self.coordinator = coordinator
+        self.context = context
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -38,6 +31,7 @@ class SuppliersViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        fetch()
         setupUI()
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add,
@@ -49,6 +43,17 @@ class SuppliersViewController: UIViewController {
         view.addSubview(tableView)
         tableView.snp.makeConstraints {
             $0.edges.equalToSuperview()
+        }
+    }
+    
+    private func fetch() {
+        context.fakeSuppliersService.getSuppliers { result in
+            switch result {
+            case let .success(suppliers):
+                self.suppliers = suppliers
+            default:
+                return
+            }
         }
     }
     

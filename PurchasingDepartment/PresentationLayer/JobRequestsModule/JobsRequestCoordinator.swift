@@ -13,12 +13,17 @@ class JobsRequestCoordinator: NavigationCoordinator, TabPresentable {
     
     init(context: AppContext) {
         super.init(context: context, root: navigationController)
-        let statusesVC = StatusesViewController()
+        let statusesVC = StatusesViewController(coordinator: self)
         statusesVC.title = "Заказы"
         push(statusesVC, animated: true)
     }
     
     override init(coordinator: NavigationCoordinator) {
         super.init(coordinator: coordinator)
+    }
+    
+    func showJobsList(for status: JobStatus) {
+        let list = MyOrdersListViewController(jobStatus: status, context: context)
+        push(list, animated: true)
     }
 }

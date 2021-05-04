@@ -2,17 +2,13 @@ import UIKit
 
 class GoodsViewController: UIViewController {
     
-    private var items: [ProductCatalog] = [
-        ProductCatalog(name: "Ручка синяя", partNumber: "011_dsa_12", measurementUnit: "Шт."),
-        ProductCatalog(name: "Ручка синяя", partNumber: "011_dsa_12", measurementUnit: "Шт."),
-        ProductCatalog(name: "Ручка синяя", partNumber: "011_dsa_12", measurementUnit: "Шт."),
-        ProductCatalog(name: "Ручка синяя", partNumber: "011_dsa_12", measurementUnit: "Шт."),
-        ProductCatalog(name: "Ручка синяя", partNumber: "011_dsa_12", measurementUnit: "Шт."),
-        ProductCatalog(name: "Ручка синяя", partNumber: "011_dsa_12", measurementUnit: "Шт."),
-        ProductCatalog(name: "Ручка синяя", partNumber: "011_dsa_12", measurementUnit: "Шт."),
-        ProductCatalog(name: "Ручка синяя", partNumber: "011_dsa_12", measurementUnit: "Шт."),
-        ProductCatalog(name: "Ручка синяя", partNumber: "011_dsa_12", measurementUnit: "Шт.")
-    ]
+    var context: AppContext
+    
+    private var items: [ProductCatalog] = [] {
+        didSet {
+            tableView.reloadData()
+        }
+    }
     
     private lazy var tableView: UITableView = {
         let tv = UITableView()
@@ -22,9 +18,19 @@ class GoodsViewController: UIViewController {
         return tv
     }()
     
+    init(context: AppContext) {
+        self.context = context
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        fetch()
         setupUI()
     }
     
@@ -34,6 +40,17 @@ class GoodsViewController: UIViewController {
         view.addSubview(tableView)
         tableView.snp.makeConstraints {
             $0.edges.equalToSuperview()
+        }
+    }
+    
+    private func fetch() {
+        context.fakeProductsService.getAllProducts { result in
+            switch result {
+            case let .success(products):
+                self.items = products
+            default:
+                return
+            }
         }
     }
 }

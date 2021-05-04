@@ -13,7 +13,7 @@ class GoodsCoordinator: NavigationCoordinator, TabPresentable {
     
     init(context: AppContext) {
         super.init(context: context, root: navigationController)
-        let goodsVC = GoodsViewController()
+        let goodsVC = GoodsViewController(context: context)
         goodsVC.title = "Справочник"
         push(goodsVC, animated: true)
     }

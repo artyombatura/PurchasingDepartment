@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		D8CDEA0054A41E1B5780F339 /* Pods_PurchasingDepartment.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEC60FB45A2EE9552F02589A /* Pods_PurchasingDepartment.framework */; };
+		F86B2CB72641D3F200C40DFF /* JobStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86B2CB62641D3F200C40DFF /* JobStatus.swift */; };
+		F86B2CBA2641D47400C40DFF /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86B2CB92641D47400C40DFF /* Order.swift */; };
+		F86B2CBD2641D7A500C40DFF /* OrdersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86B2CBC2641D7A500C40DFF /* OrdersService.swift */; };
+		F86B2CC02641D91700C40DFF /* ProductsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86B2CBF2641D91700C40DFF /* ProductsService.swift */; };
+		F86B2CC32641D99800C40DFF /* SuppliersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86B2CC22641D99800C40DFF /* SuppliersService.swift */; };
+		F86B2CC72641DA4D00C40DFF /* MyOrdersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86B2CC62641DA4D00C40DFF /* MyOrdersListViewController.swift */; };
 		F8B2BBA9263EE8AC002F741A /* Presentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B2BBA8263EE8AC002F741A /* Presentable.swift */; };
 		F8B2BBAC263EEBE5002F741A /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B2BBAB263EEBE5002F741A /* AppCoordinator.swift */; };
 		F8B2BBB8263EF06D002F741A /* MainTabsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B2BBB7263EF06D002F741A /* MainTabsViewController.swift */; };
@@ -52,6 +58,12 @@
 /* Begin PBXFileReference section */
 		0FB4B4A5B6752DF695BBB2DF /* Pods-PurchasingDepartment.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PurchasingDepartment.debug.xcconfig"; path = "Target Support Files/Pods-PurchasingDepartment/Pods-PurchasingDepartment.debug.xcconfig"; sourceTree = "<group>"; };
 		D3821798329F421FE89E4E09 /* Pods-PurchasingDepartment.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PurchasingDepartment.release.xcconfig"; path = "Target Support Files/Pods-PurchasingDepartment/Pods-PurchasingDepartment.release.xcconfig"; sourceTree = "<group>"; };
+		F86B2CB62641D3F200C40DFF /* JobStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobStatus.swift; sourceTree = "<group>"; };
+		F86B2CB92641D47400C40DFF /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
+		F86B2CBC2641D7A500C40DFF /* OrdersService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersService.swift; sourceTree = "<group>"; };
+		F86B2CBF2641D91700C40DFF /* ProductsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsService.swift; sourceTree = "<group>"; };
+		F86B2CC22641D99800C40DFF /* SuppliersService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuppliersService.swift; sourceTree = "<group>"; };
+		F86B2CC62641DA4D00C40DFF /* MyOrdersListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOrdersListViewController.swift; sourceTree = "<group>"; };
 		F8B2BBA8263EE8AC002F741A /* Presentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presentable.swift; sourceTree = "<group>"; };
 		F8B2BBAB263EEBE5002F741A /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		F8B2BBB7263EF06D002F741A /* MainTabsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabsViewController.swift; sourceTree = "<group>"; };
@@ -125,9 +137,18 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		F86B2CC52641DA3400C40DFF /* MyOrdersList */ = {
+			isa = PBXGroup;
+			children = (
+				F86B2CC62641DA4D00C40DFF /* MyOrdersListViewController.swift */,
+			);
+			path = MyOrdersList;
+			sourceTree = "<group>";
+		};
 		F8B2BBAE263EEBEC002F741A /* JobRequestsModule */ = {
 			isa = PBXGroup;
 			children = (
+				F86B2CC52641DA3400C40DFF /* MyOrdersList */,
 				F8B2BBC5263EF344002F741A /* StatusesMain */,
 				F8B2BBBF263EF258002F741A /* JobsRequestCoordinator.swift */,
 			);
@@ -215,6 +236,8 @@
 				F8B4F2A62640663F00E41FF1 /* User.swift */,
 				F8B4F2B92640842300E41FF1 /* ProductCatalog.swift */,
 				F8B4F2BF2640890200E41FF1 /* Supplier.swift */,
+				F86B2CB62641D3F200C40DFF /* JobStatus.swift */,
+				F86B2CB92641D47400C40DFF /* Order.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -297,6 +320,9 @@
 			children = (
 				F8ED5C3926373F1400E3860D /* AppContext.swift */,
 				F8B4F2A2264065D700E41FF1 /* UserService.swift */,
+				F86B2CBC2641D7A500C40DFF /* OrdersService.swift */,
+				F86B2CBF2641D91700C40DFF /* ProductsService.swift */,
+				F86B2CC22641D99800C40DFF /* SuppliersService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -449,6 +475,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F8B4F2AB2640674500E41FF1 /* UserDefaultsWrapper.swift in Sources */,
+				F86B2CB72641D3F200C40DFF /* JobStatus.swift in Sources */,
 				F8B4F2BD2640848D00E41FF1 /* GoodsTableViewCell.swift in Sources */,
 				F8B2BBC7263EF357002F741A /* StatusesViewController.swift in Sources */,
 				F8B4F2B52640717200E41FF1 /* UIFont + Extensions.swift in Sources */,
@@ -461,6 +488,7 @@
 				F8ED5C3A26373F1400E3860D /* AppContext.swift in Sources */,
 				F8B4F2A3264065D700E41FF1 /* UserService.swift in Sources */,
 				F8B4F2BA2640842300E41FF1 /* ProductCatalog.swift in Sources */,
+				F86B2CBD2641D7A500C40DFF /* OrdersService.swift in Sources */,
 				F8B4F2C826408B0D00E41FF1 /* SupplierDetailsView.swift in Sources */,
 				F8ED5C0F26373A9A00E3860D /* AppDelegate.swift in Sources */,
 				F8B2BBF7263F0DFA002F741A /* UnderlinedStateableTextField.swift in Sources */,
@@ -469,14 +497,18 @@
 				F8B4F2AF26406F6900E41FF1 /* BaseScrollableView.swift in Sources */,
 				F8B2BBBD263EF1AA002F741A /* UITabBarItem + Extensions.swift in Sources */,
 				F8B2BBCD263EFC99002F741A /* UIImage + Extensions.swift in Sources */,
+				F86B2CBA2641D47400C40DFF /* Order.swift in Sources */,
+				F86B2CC72641DA4D00C40DFF /* MyOrdersListViewController.swift in Sources */,
 				F8B2BBEB263F0235002F741A /* AuthViewController.swift in Sources */,
 				F8B2BBAC263EEBE5002F741A /* AppCoordinator.swift in Sources */,
 				F8B2BBD0263EFD11002F741A /* SuppliersCoordinator.swift in Sources */,
 				F8ED5C3226373EDD00E3860D /* NavigationCoordinator.swift in Sources */,
 				F8B2BBB8263EF06D002F741A /* MainTabsViewController.swift in Sources */,
+				F86B2CC02641D91700C40DFF /* ProductsService.swift in Sources */,
 				F8B2BBC0263EF258002F741A /* JobsRequestCoordinator.swift in Sources */,
 				F8ED5C2F26373EC200E3860D /* Coordinator.swift in Sources */,
 				F8B2BBE2263EFDAA002F741A /* GoodsViewController.swift in Sources */,
+				F86B2CC32641D99800C40DFF /* SuppliersService.swift in Sources */,
 				F8B2BBD5263EFD40002F741A /* UserAccountCoordinator.swift in Sources */,
 				F8B4F2C02640890200E41FF1 /* Supplier.swift in Sources */,
 				F8B2BBFA263F0F50002F741A /* UIColor + Extensions.swift in Sources */,
@@ -626,6 +658,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3TG9F8VMYJ;
 				INFOPLIST_FILE = "$(SRCROOT)/PurchasingDepartment/Resources/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -646,6 +679,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3TG9F8VMYJ;
 				INFOPLIST_FILE = "$(SRCROOT)/PurchasingDepartment/Resources/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
