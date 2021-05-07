@@ -3,4 +3,5 @@ struct Supplier {
     let email: String
     let address: String
     let phone: String
+    let products: [ProductCatalog]
 }
