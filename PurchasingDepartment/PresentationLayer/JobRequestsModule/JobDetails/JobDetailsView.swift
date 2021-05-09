@@ -1,5 +1,12 @@
 import UIKit
 
+protocol JobDetailsViewDelegate: AnyObject {
+    func jobDetailsViewDidSelectAddDate(view: JobDetailsView, date: Date, dateFormatter: DateFormatter)
+    func jodDetailsViewDidSelectRemoveDate(view: JobDetailsView)
+    
+    func jobDetailsViewDidSelectRemoveSupplier(view: JobDetailsView, supplier: Supplier)
+}
+
 class JobDetailsView: BaseScrollableView {
     private lazy var contentView: UIView = {
         let v = UIView()
@@ -81,7 +88,7 @@ class JobDetailsView: BaseScrollableView {
         let b = AccessoryButtonItem()
         b.displayType = .add
         b.action = { [weak self] in
-            
+            self?.addDate()
         }
         return b
     }()
@@ -90,17 +97,15 @@ class JobDetailsView: BaseScrollableView {
         let b = AccessoryButtonItem()
         b.displayType = .remove
         b.action = { [weak self] in
-            
+            self?.removeDate()
         }
         b.availability = .disabled
         return b
     }()
     
-    private lazy var selectedDateLabel: UILabel = {
-        let l = UILabel()
-        l.font = UIFont.app16Font
-        l.textColor = UIColor.appGrayColor
-        l.text = "24.07.2021"
+    private lazy var selectedDateTextField: UnderlinedStateableTextField = {
+        let l = UnderlinedStateableTextField()
+        l.lineColor = .white
         return l
     }()
     
@@ -111,41 +116,12 @@ class JobDetailsView: BaseScrollableView {
         return l
     }()
     
-    private lazy var supplierSelectionButttonStackView: UIStackView = {
-        let sv = UIStackView()
-        sv.axis = .horizontal
-        sv.alignment = .center
-        sv.distribution = .fillEqually
-        sv.spacing = 10
-        sv.addArrangedSubview(removeSupplierButton)
-        sv.addArrangedSubview(addSupplierButton)
-        return sv
-    }()
-    
-    private lazy var addSupplierButton: AccessoryButtonItem = {
-        let b = AccessoryButtonItem()
-        b.displayType = .add
-        b.action = { [weak self] in
-            
-        }
-        return b
-    }()
-    
-    private lazy var removeSupplierButton: AccessoryButtonItem = {
-        let b = AccessoryButtonItem()
-        b.displayType = .remove
-        b.action = { [weak self] in
-            
-        }
-        b.availability = .disabled
-        return b
-    }()
-    
     private lazy var suppliersStackView: UIStackView = {
         let sv = UIStackView()
         sv.alignment = .center
         sv.distribution = .equalSpacing
         sv.axis = .vertical
+        sv.spacing = 10
         return sv
     }()
     
@@ -159,15 +135,32 @@ class JobDetailsView: BaseScrollableView {
         return b
     }()
     
+    // Date picker
+    private lazy var datePicker: UIDatePicker = {
+        let expectedPickerFrame = CGRect(x: 0,
+                                   y: 0,
+                                   width: self.bounds.width,
+                                   height: 250.0)
+        let picker = UIDatePicker(frame: expectedPickerFrame)
+        picker.datePickerMode = .date
+        picker.date = Date()
+        picker.minimumDate = Date()
+        picker.preferredDatePickerStyle = .wheels
+        picker.sizeToFit()
+        return picker
+    }()
+    
     var order: Order
+    weak var delegate: JobDetailsViewDelegate?
     private lazy var dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
-        formatter.dateFormat = "dd.mm.YYYY"
+        formatter.dateFormat = AppContext.Constant.dateFormate
         return formatter
     }()
     
-    init(order: Order) {
+    init(order: Order, delegate: JobDetailsViewDelegate?) {
         self.order = order
+        self.delegate = delegate
         super.init()
         self.backgroundColor = .white
         self.scrollView.backgroundColor = .white
@@ -199,9 +192,8 @@ class JobDetailsView: BaseScrollableView {
         contentView.addSubview(countTextField)
         contentView.addSubview(dateTitleLabel)
         contentView.addSubview(dateSelectionButttonStackView)
-        contentView.addSubview(selectedDateLabel)
+        contentView.addSubview(selectedDateTextField)
         contentView.addSubview(suppliersTitleLabel)
-        contentView.addSubview(supplierSelectionButttonStackView)
         contentView.addSubview(suppliersStackView)
         contentView.addSubview(positivieButton)
         
@@ -281,55 +273,38 @@ class JobDetailsView: BaseScrollableView {
             make.width.height.equalTo(24)
         }
         
-        selectedDateLabel.snp.makeConstraints { make in
+        selectedDateTextField.snp.makeConstraints { make in
             make.top.equalTo(dateTitleLabel.snp.bottom).offset(modulesVerticalOffset)
             make.leading.trailing.equalTo(nameTitleLabel)
             make.height.equalTo(tfHeight)
         }
         
         suppliersTitleLabel.snp.makeConstraints { make in
-            make.top.equalTo(selectedDateLabel.snp.bottom).offset(verticalOffset)
+            make.top.equalTo(selectedDateTextField.snp.bottom).offset(verticalOffset)
             make.leading.trailing.equalTo(nameTitleLabel)
             make.height.equalTo(titleHeight)
         }
         
-        supplierSelectionButttonStackView.snp.makeConstraints { make in
-            make.trailing.equalTo(nameTitleLabel)
-            make.width.equalTo(58)
-            make.height.equalTo(24)
-            make.top.equalTo(suppliersTitleLabel)
-        }
-        
-        addSupplierButton.snp.makeConstraints { make in
-            make.width.height.equalTo(24)
-        }
-
-        removeSupplierButton.snp.makeConstraints { make in
-            make.width.height.equalTo(24)
-        }
-        
         suppliersStackView.snp.makeConstraints { make in
             make.leading.trailing.equalTo(nameTitleLabel)
-            make.top.equalTo(supplierSelectionButttonStackView.snp.bottom).offset(verticalOffset)
+            make.top.equalTo(suppliersTitleLabel.snp.bottom).offset(verticalOffset)
         }
         
         positivieButton.snp.makeConstraints { make in
             make.width.equalTo(200)
             make.height.equalTo(48)
             make.centerX.equalToSuperview()
-            make.top.equalTo(suppliersStackView.snp.bottom)
+            make.top.equalTo(suppliersStackView.snp.bottom).offset(40)
         }
         
         addDateButton.layer.cornerRadius = 12
         removeDateButton.layer.cornerRadius = 12
-        addSupplierButton.layer.cornerRadius = 12
-        removeSupplierButton.layer.cornerRadius = 12
 
         contentView.snp.makeConstraints {
             $0.top.bottom.equalTo(scrollView)
             $0.left.right.equalTo(scrollView)
             $0.width.equalTo(scrollView)
-            $0.bottom.equalTo(positivieButton.snp.bottom).offset(50)
+            $0.bottom.equalTo(positivieButton.snp.bottom).offset(40)
         }
     }
     
@@ -337,5 +312,92 @@ class JobDetailsView: BaseScrollableView {
     
     private func positiveButtonAction() {
         print("did tap positive button")
+    }
+    
+    private func addDate() {
+        let expectedToolbarFrame = CGRect(x: 0,
+                                          y: 0,
+                                          width: self.bounds.width,
+                                          height: 44.0)
+        let toolbar = UIToolbar(frame: expectedToolbarFrame)
+        let cancelAction = UIBarButtonItem(title: "Отменить",
+                                           style: .plain,
+                                           target: self,
+                                           action: #selector(cancelDateSelectionAction))
+        let acceptAction = UIBarButtonItem(title: "Выбрать",
+                                           style: .plain,
+                                           target: self,
+                                           action: #selector(selectDateFromPickerAction))
+        toolbar.setItems([cancelAction, acceptAction], animated: true)
+        
+        selectedDateTextField.inputView = self.datePicker
+        selectedDateTextField.inputAccessoryView = toolbar
+        selectedDateTextField.becomeFirstResponder()
+    }
+    
+    private func removeDate() {
+        self.delegate?.jodDetailsViewDidSelectRemoveDate(view: self)
+    }
+    
+    @objc private func cancelDateSelectionAction() {
+        selectedDateTextField.resignFirstResponder()
+        datePicker.date = Date()
+    }
+    
+    @objc private func selectDateFromPickerAction() {
+        let date = datePicker.date
+        self.delegate?.jobDetailsViewDidSelectAddDate(view: self, date: date, dateFormatter: dateFormatter)
+        selectedDateTextField.resignFirstResponder()
+        datePicker.date = Date()
+    }
+    
+    // MARK: - Public methods
+    
+    public func updateDate(with date: String) {
+        self.selectedDateTextField.text = date
+        if date.isEmpty {
+            removeDateButton.availability = .disabled
+            addDateButton.availability = .active
+        } else {
+            removeDateButton.availability = .active
+            addDateButton.availability = .disabled
+        }
+    }
+    
+    public func update(for order: Order) {
+        /// Config all subviews
+        nameTextField.text = order.name
+        partNumberTextField.text = order.partNumber
+        noteTextField.text = order.note ?? ""
+        countTextField.text = String(order.numberOfItems)
+        if let date = order.date {
+            selectedDateTextField.text = date
+        }
+    
+        /// Config suppliers subviews
+        switch order.status {
+        case .requested:
+            if let suppliers = order.suppliers {
+                suppliers.forEach { supplier in
+                    let supplierView = SupplierSubview(supplier: supplier)
+                    supplierView.update(for: supplier, viewState: .canBeRemoved)
+                    supplierView.removeAction = { [weak self] view in
+                        guard let self = self else {
+                            return
+                        }
+                        self.delegate?.jobDetailsViewDidSelectRemoveSupplier(view: self, supplier: supplier)
+                        self.order.suppliers?.removeAll(where: { $0.id == supplier.id })
+                        view.removeFromSuperview()
+                    }
+                    suppliersStackView.addArrangedSubview(supplierView)
+                    supplierView.snp.makeConstraints {
+                        $0.leading.trailing.equalToSuperview()
+                        $0.height.equalTo(50)
+                    }
+                }
+            }
+        default:
+            break
+        }
     }
 }

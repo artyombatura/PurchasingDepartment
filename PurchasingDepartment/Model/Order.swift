@@ -54,7 +54,7 @@ struct Order {
     let numberOfItems: Int
     let requestNumber: Int
     var note: String?
-    var date: Date?
+    var date: String?
     var status: JobStatus
     var selectedPrice: Double?
     var suppliers: [Supplier]?
