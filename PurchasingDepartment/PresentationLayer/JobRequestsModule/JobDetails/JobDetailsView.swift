@@ -96,7 +96,75 @@ class JobDetailsView: BaseScrollableView {
         return b
     }()
     
+    private lazy var selectedDateLabel: UILabel = {
+        let l = UILabel()
+        l.font = UIFont.app16Font
+        l.textColor = UIColor.appGrayColor
+        l.text = "24.07.2021"
+        return l
+    }()
+    
+    private lazy var suppliersTitleLabel: UILabel = {
+        let l = UILabel()
+        l.text = "Поставщики:"
+        l.font = UIFont.app16BoldFont
+        return l
+    }()
+    
+    private lazy var supplierSelectionButttonStackView: UIStackView = {
+        let sv = UIStackView()
+        sv.axis = .horizontal
+        sv.alignment = .center
+        sv.distribution = .fillEqually
+        sv.spacing = 10
+        sv.addArrangedSubview(removeSupplierButton)
+        sv.addArrangedSubview(addSupplierButton)
+        return sv
+    }()
+    
+    private lazy var addSupplierButton: AccessoryButtonItem = {
+        let b = AccessoryButtonItem()
+        b.displayType = .add
+        b.action = { [weak self] in
+            
+        }
+        return b
+    }()
+    
+    private lazy var removeSupplierButton: AccessoryButtonItem = {
+        let b = AccessoryButtonItem()
+        b.displayType = .remove
+        b.action = { [weak self] in
+            
+        }
+        b.availability = .disabled
+        return b
+    }()
+    
+    private lazy var suppliersStackView: UIStackView = {
+        let sv = UIStackView()
+        sv.alignment = .center
+        sv.distribution = .equalSpacing
+        sv.axis = .vertical
+        return sv
+    }()
+    
+    private lazy var positivieButton: ActionButton = {
+        let b = ActionButton()
+        b.setAction { [weak self] in
+            self?.positiveButtonAction()
+        }
+        b.title = "Отправить"
+        b.layer.cornerRadius = 25
+        return b
+    }()
+    
     var order: Order
+    private lazy var dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd.mm.YYYY"
+        return formatter
+    }()
     
     init(order: Order) {
         self.order = order
@@ -131,6 +199,11 @@ class JobDetailsView: BaseScrollableView {
         contentView.addSubview(countTextField)
         contentView.addSubview(dateTitleLabel)
         contentView.addSubview(dateSelectionButttonStackView)
+        contentView.addSubview(selectedDateLabel)
+        contentView.addSubview(suppliersTitleLabel)
+        contentView.addSubview(supplierSelectionButttonStackView)
+        contentView.addSubview(suppliersStackView)
+        contentView.addSubview(positivieButton)
         
         let sideOffset: CGFloat = 20.0
         let modulesVerticalOffset: CGFloat = 3.0
@@ -208,14 +281,61 @@ class JobDetailsView: BaseScrollableView {
             make.width.height.equalTo(24)
         }
         
+        selectedDateLabel.snp.makeConstraints { make in
+            make.top.equalTo(dateTitleLabel.snp.bottom).offset(modulesVerticalOffset)
+            make.leading.trailing.equalTo(nameTitleLabel)
+            make.height.equalTo(tfHeight)
+        }
+        
+        suppliersTitleLabel.snp.makeConstraints { make in
+            make.top.equalTo(selectedDateLabel.snp.bottom).offset(verticalOffset)
+            make.leading.trailing.equalTo(nameTitleLabel)
+            make.height.equalTo(titleHeight)
+        }
+        
+        supplierSelectionButttonStackView.snp.makeConstraints { make in
+            make.trailing.equalTo(nameTitleLabel)
+            make.width.equalTo(58)
+            make.height.equalTo(24)
+            make.top.equalTo(suppliersTitleLabel)
+        }
+        
+        addSupplierButton.snp.makeConstraints { make in
+            make.width.height.equalTo(24)
+        }
+
+        removeSupplierButton.snp.makeConstraints { make in
+            make.width.height.equalTo(24)
+        }
+        
+        suppliersStackView.snp.makeConstraints { make in
+            make.leading.trailing.equalTo(nameTitleLabel)
+            make.top.equalTo(supplierSelectionButttonStackView.snp.bottom).offset(verticalOffset)
+        }
+        
+        positivieButton.snp.makeConstraints { make in
+            make.width.equalTo(200)
+            make.height.equalTo(48)
+            make.centerX.equalToSuperview()
+            make.top.equalTo(suppliersStackView.snp.bottom)
+        }
+        
         addDateButton.layer.cornerRadius = 12
         removeDateButton.layer.cornerRadius = 12
+        addSupplierButton.layer.cornerRadius = 12
+        removeSupplierButton.layer.cornerRadius = 12
 
         contentView.snp.makeConstraints {
             $0.top.bottom.equalTo(scrollView)
             $0.left.right.equalTo(scrollView)
             $0.width.equalTo(scrollView)
-            $0.height.equalToSuperview()
+            $0.bottom.equalTo(positivieButton.snp.bottom).offset(50)
         }
+    }
+    
+    // MARK: - Actions
+    
+    private func positiveButtonAction() {
+        print("did tap positive button")
     }
 }

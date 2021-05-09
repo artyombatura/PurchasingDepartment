@@ -1,6 +1,6 @@
 import Foundation
 
-enum JobStatus {
+enum JobStatus: String {
     case requested
     case awaitingForPrice
     case inProgress

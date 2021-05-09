@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F1A8F202646C98300D5D3F6 /* SupplierSubview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1A8F1F2646C98300D5D3F6 /* SupplierSubview.swift */; };
 		D8CDEA0054A41E1B5780F339 /* Pods_PurchasingDepartment.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEC60FB45A2EE9552F02589A /* Pods_PurchasingDepartment.framework */; };
 		F86B2CB72641D3F200C40DFF /* JobStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86B2CB62641D3F200C40DFF /* JobStatus.swift */; };
 		F86B2CBA2641D47400C40DFF /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86B2CB92641D47400C40DFF /* Order.swift */; };
@@ -59,6 +60,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0F1A8F1F2646C98300D5D3F6 /* SupplierSubview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupplierSubview.swift; sourceTree = "<group>"; };
 		0FB4B4A5B6752DF695BBB2DF /* Pods-PurchasingDepartment.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PurchasingDepartment.debug.xcconfig"; path = "Target Support Files/Pods-PurchasingDepartment/Pods-PurchasingDepartment.debug.xcconfig"; sourceTree = "<group>"; };
 		D3821798329F421FE89E4E09 /* Pods-PurchasingDepartment.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PurchasingDepartment.release.xcconfig"; path = "Target Support Files/Pods-PurchasingDepartment/Pods-PurchasingDepartment.release.xcconfig"; sourceTree = "<group>"; };
 		F86B2CB62641D3F200C40DFF /* JobStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobStatus.swift; sourceTree = "<group>"; };
@@ -271,6 +273,7 @@
 			children = (
 				F8BAB3612644786A00E64B2C /* JobDetailsViewController.swift */,
 				F8BAB3642644787100E64B2C /* JobDetailsView.swift */,
+				0F1A8F1F2646C98300D5D3F6 /* SupplierSubview.swift */,
 			);
 			path = JobDetails;
 			sourceTree = "<group>";
@@ -530,6 +533,7 @@
 				F8B2BBE2263EFDAA002F741A /* GoodsViewController.swift in Sources */,
 				F86B2CC32641D99800C40DFF /* SuppliersService.swift in Sources */,
 				F8B2BBD5263EFD40002F741A /* UserAccountCoordinator.swift in Sources */,
+				0F1A8F202646C98300D5D3F6 /* SupplierSubview.swift in Sources */,
 				F8B4F2C02640890200E41FF1 /* Supplier.swift in Sources */,
 				F8B2BBFA263F0F50002F741A /* UIColor + Extensions.swift in Sources */,
 				F8B4F2C426408B0500E41FF1 /* SupplierDetailsViewController.swift in Sources */,
@@ -678,7 +682,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3TG9F8VMYJ;
 				INFOPLIST_FILE = "$(SRCROOT)/PurchasingDepartment/Resources/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -699,7 +703,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3TG9F8VMYJ;
 				INFOPLIST_FILE = "$(SRCROOT)/PurchasingDepartment/Resources/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -7,6 +7,7 @@ protocol OrdersServiceProtocol {
 class OrdersService: OrdersServiceProtocol {
     func getOrders(for status: JobStatus, completion: @escaping ((Result<[Order], Error>) -> Void)) {
         completion(.success([]))
+
     }
 }
 
@@ -18,7 +19,8 @@ class FakeOrdersService: OrdersServiceProtocol {
         }
         var orders: [Order] = [
             // requested
-            Order(name: "Ручка синяя",
+            Order(id: "1",
+                  name: "Ручка синяя",
                   partNumber: "011_dsa_12",
                   numberOfItems: 10,
                   requestNumber: 113,
@@ -28,7 +30,8 @@ class FakeOrdersService: OrdersServiceProtocol {
                   selectedPrice: nil,
                   suppliers: nil,
                   selectedSupplier: nil),
-            Order(name: "Ручка синяя",
+            Order(id: "1",
+                  name: "Ручка синяя",
                   partNumber: "011_dsa_12",
                   numberOfItems: 10,
                   requestNumber: 114,
@@ -39,7 +42,8 @@ class FakeOrdersService: OrdersServiceProtocol {
                   suppliers: nil,
                   selectedSupplier: nil),
             // awaitingForPrice
-            Order(name: "Ручка синяя",
+            Order(id: "1",
+                  name: "Ручка синяя",
                   partNumber: "011_dsa_12",
                   numberOfItems: 10,
                   requestNumber: 113,
@@ -49,7 +53,8 @@ class FakeOrdersService: OrdersServiceProtocol {
                   selectedPrice: nil,
                   suppliers: fakeSuppliers,
                   selectedSupplier: nil),
-            Order(name: "Ручка синяя",
+            Order(id: "1",
+                  name: "Ручка синяя",
                   partNumber: "011_dsa_12",
                   numberOfItems: 10,
                   requestNumber: 114,
@@ -60,7 +65,8 @@ class FakeOrdersService: OrdersServiceProtocol {
                   suppliers: fakeSuppliers,
                   selectedSupplier: nil),
             // inProgress
-            Order(name: "Ручка синяя",
+            Order(id: "1",
+                  name: "Ручка синяя",
                   partNumber: "011_dsa_12",
                   numberOfItems: 10,
                   requestNumber: 113,
@@ -70,7 +76,8 @@ class FakeOrdersService: OrdersServiceProtocol {
                   selectedPrice: 400,
                   suppliers: nil,
                   selectedSupplier: fakeSuppliers?.first),
-            Order(name: "Ручка синяя",
+            Order(id: "1",
+                  name: "Ручка синяя",
                   partNumber: "011_dsa_12",
                   numberOfItems: 10,
                   requestNumber: 114,
@@ -81,7 +88,8 @@ class FakeOrdersService: OrdersServiceProtocol {
                   suppliers: nil,
                   selectedSupplier: fakeSuppliers?.first),
             // dispute
-            Order(name: "Ручка синяя",
+            Order(id: "1",
+                  name: "Ручка синяя",
                   partNumber: "011_dsa_12",
                   numberOfItems: 10,
                   requestNumber: 113,
@@ -91,7 +99,8 @@ class FakeOrdersService: OrdersServiceProtocol {
                   selectedPrice: 400,
                   suppliers: nil,
                   selectedSupplier: fakeSuppliers?.first),
-            Order(name: "Ручка синяя",
+            Order(id: "1",
+                  name: "Ручка синяя",
                   partNumber: "011_dsa_12",
                   numberOfItems: 10,
                   requestNumber: 114,
@@ -102,7 +111,8 @@ class FakeOrdersService: OrdersServiceProtocol {
                   suppliers: nil,
                   selectedSupplier: fakeSuppliers?.first),
             // completed
-            Order(name: "Ручка синяя",
+            Order(id: "1",
+                  name: "Ручка синяя",
                   partNumber: "011_dsa_12",
                   numberOfItems: 10,
                   requestNumber: 113,
@@ -112,7 +122,8 @@ class FakeOrdersService: OrdersServiceProtocol {
                   selectedPrice: 400,
                   suppliers: nil,
                   selectedSupplier: fakeSuppliers?.first),
-            Order(name: "Ручка синяя",
+            Order(id: "1",
+                  name: "Ручка синяя",
                   partNumber: "011_dsa_12",
                   numberOfItems: 10,
                   requestNumber: 114,
