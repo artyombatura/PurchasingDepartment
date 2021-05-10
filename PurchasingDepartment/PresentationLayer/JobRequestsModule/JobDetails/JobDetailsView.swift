@@ -5,6 +5,11 @@ protocol JobDetailsViewDelegate: AnyObject {
     func jodDetailsViewDidSelectRemoveDate(view: JobDetailsView)
     
     func jobDetailsViewDidSelectRemoveSupplier(view: JobDetailsView, supplier: Supplier)
+    
+    func jobDetailsViewShouldShow(view: JobDetailsView, alert: UIAlertController)
+    
+    func jobDetailsViewDidSelectSupplierAndPrice(view: JobDetailsView, supplier: Supplier, price: Double)
+    func jobDetailsViewDidDeselectSupplierAndPrice(view: JobDetailsView)
 }
 
 class JobDetailsView: BaseScrollableView {
@@ -24,6 +29,7 @@ class JobDetailsView: BaseScrollableView {
     private lazy var nameTextField: UnderlinedStateableTextField = {
         let tf = UnderlinedStateableTextField()
         tf.text = order.name
+        tf.tfState = .notEditable
         return tf
     }()
     
@@ -37,6 +43,7 @@ class JobDetailsView: BaseScrollableView {
     private lazy var partNumberTextField: UnderlinedStateableTextField = {
         let tf = UnderlinedStateableTextField()
         tf.text = order.partNumber
+        tf.tfState = .notEditable
         return tf
     }()
     
@@ -63,6 +70,7 @@ class JobDetailsView: BaseScrollableView {
     private lazy var countTextField: UnderlinedStateableTextField = {
         let tf = UnderlinedStateableTextField()
         tf.text = String(order.numberOfItems)
+        tf.tfState = .notEditable
         return tf
     }()
     
@@ -106,6 +114,7 @@ class JobDetailsView: BaseScrollableView {
     private lazy var selectedDateTextField: UnderlinedStateableTextField = {
         let l = UnderlinedStateableTextField()
         l.lineColor = .white
+        l.placeholder = "Выберите дату, нажав '+'"
         return l
     }()
     
@@ -166,6 +175,8 @@ class JobDetailsView: BaseScrollableView {
         self.scrollView.backgroundColor = .white
         
         setupUI()
+        
+        configUserAccessability()
     }
     
     required init?(coder _: NSCoder) {
@@ -396,8 +407,101 @@ class JobDetailsView: BaseScrollableView {
                     }
                 }
             }
-        default:
-            break
+        case .awaitingForPrice:
+            if let suppliers = order.suppliers {
+                suppliers.forEach { supplier in
+                    let supplierView = SupplierSubview(supplier: supplier)
+                    supplierView.update(for: supplier, viewState: .notSelected)
+                    
+                    supplierView.tapAction = { [weak self] supplierView in
+                        guard let self = self else {
+                            return
+                        }
+                        switch supplierView.viewState {
+                        case .notSelected:
+                            let alertController = UIAlertController(title: "Укажите цену",
+                                                                    message: "Введите цену поставщика",
+                                                                    preferredStyle: .alert)
+                            alertController.addTextField { tf in
+                                tf.accessibilityIdentifier = "price_text_field"
+                                tf.keyboardType = .numberPad
+                            }
+                            let cancelAction = UIAlertAction(title: "Отмена",
+                                                             style: .cancel) { _ in
+                                alertController.dismiss(animated: true, completion: nil)
+                            }
+                            let acceptAction = UIAlertAction(title: "Сохранить",
+                                                             style: .default) { _ in
+                                guard let priceTF = alertController.textFields?.first(where: { $0.accessibilityIdentifier == "price_text_field" }),
+                                      let price = Double(priceTF.text ?? "") else {
+                                    return
+                                }
+                                
+                                self.delegate?.jobDetailsViewDidSelectSupplierAndPrice(view: self, supplier: supplier, price: price)
+                                self.order.selectedSupplier = supplier
+                                self.order.selectedPrice = price
+                                
+                                supplierView.update(for: supplier, viewState: .selected(price: price))
+                                alertController.dismiss(animated: true, completion: nil)
+                            }
+                            alertController.addAction(cancelAction)
+                            alertController.addAction(acceptAction)
+                            self.delegate?.jobDetailsViewShouldShow(view: self, alert: alertController)
+                            
+                        case .selected(_):
+                            self.delegate?.jobDetailsViewDidDeselectSupplierAndPrice(view: self)
+                            self.order.selectedSupplier = nil
+                            self.order.selectedPrice = nil
+                            supplierView.update(for: supplier, viewState: .notSelected)
+                            
+                        default:
+                            break
+                        }
+                    }
+                    
+                    suppliersStackView.addArrangedSubview(supplierView)
+                    supplierView.snp.makeConstraints {
+                        $0.leading.trailing.equalToSuperview()
+                        $0.height.equalTo(50)
+                    }
+                }
+            }
+            
+        case .inProgress, .dispute, .completed:
+            if let selectedSupplier = order.selectedSupplier,
+               let selectedPrice = order.selectedPrice {
+                let supplierView = SupplierSubview(supplier: selectedSupplier)
+                supplierView.update(for: selectedSupplier, viewState: .selected(price: selectedPrice))
+                suppliersStackView.addArrangedSubview(supplierView)
+                supplierView.snp.makeConstraints {
+                    $0.leading.trailing.equalToSuperview()
+                    $0.height.equalTo(50)
+                }
+            }
+        }
+    }
+    
+    private func configUserAccessability() {
+        switch order.status {
+        case .requested:
+            nameTextField.tfState = .notEditable
+            partNumberTextField.tfState = .notEditable
+            noteTextField.tfState = .editable
+            countTextField.tfState = .notEditable
+            selectedDateTextField.tfState = .editable
+            removeDateButton.availability = .disabled
+            addDateButton.availability = .active
+            
+        case .awaitingForPrice, .inProgress, .dispute, .completed:
+            nameTextField.tfState = .notEditable
+            partNumberTextField.tfState = .notEditable
+            noteTextField.tfState = .notEditable
+            countTextField.tfState = .notEditable
+            selectedDateTextField.tfState = .notEditable
+            removeDateButton.availability = .disabled
+            addDateButton.availability = .disabled
+            removeDateButton.isHidden = true
+            addDateButton.isHidden = true
         }
     }
 }

@@ -10,6 +10,12 @@ class SupplierSubview: UIView {
     
     // MARK: - Subviews
     
+    private lazy var containerView: UIView = {
+        let v = UIView(frame: .zero)
+        v.backgroundColor = .white
+        return v
+    }()
+    
     private lazy var supplierNameTitleLabel: UILabel = {
         let l = UILabel()
         l.font = UIFont.app16Font
@@ -69,7 +75,7 @@ class SupplierSubview: UIView {
                 viewStateInfoView.isHidden = false
                 priceTitleLabel.isHidden = false
                 viewStateInfoView.backgroundColor = UIColor.appDefaultColor
-                priceTitleLabel.text = String(price)
+                priceTitleLabel.text = "\(String(price))р."
             }
         }
     }
@@ -86,8 +92,18 @@ class SupplierSubview: UIView {
         self.addGestureRecognizer(tapGesture)
         
         update(for: supplier, viewState: viewState)
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
         
-        self.layer.borderWidth = 1
+        layer.backgroundColor = UIColor.clear.cgColor
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowOffset = CGSize(width: 0, height: 1.0)
+        layer.shadowOpacity = 0.2
+        layer.shadowRadius = 4.0
+
+        layer.cornerRadius = 14
     }
     
     required init?(coder: NSCoder) {
@@ -117,11 +133,16 @@ class SupplierSubview: UIView {
     // MARK: - Private methods
     
     private func setupUI() {
-        addSubview(supplierNameTitleLabel)
-        addSubview(supplierEmailTitleLabel)
-        addSubview(viewStateInfoView)
-        addSubview(removeButton)
-        addSubview(priceTitleLabel)
+        addSubview(containerView)
+        containerView.addSubview(supplierNameTitleLabel)
+        containerView.addSubview(supplierEmailTitleLabel)
+        containerView.addSubview(viewStateInfoView)
+        containerView.addSubview(removeButton)
+        containerView.addSubview(priceTitleLabel)
+        
+        containerView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
         
         supplierNameTitleLabel.snp.makeConstraints {
             $0.top.equalToSuperview().offset(2)
@@ -152,5 +173,8 @@ class SupplierSubview: UIView {
             $0.centerY.equalToSuperview()
             $0.width.equalTo(60)
         }
+        
+        viewStateInfoView.layer.cornerRadius = 12
+        removeButton.layer.cornerRadius = 12
     }
 }

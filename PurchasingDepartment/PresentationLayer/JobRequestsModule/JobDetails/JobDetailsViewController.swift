@@ -46,4 +46,18 @@ extension JobDetailsViewController: JobDetailsViewDelegate {
     func jobDetailsViewDidSelectRemoveSupplier(view: JobDetailsView, supplier: Supplier) {
         self.order.suppliers?.removeAll(where: { $0.id == supplier.id })
     }
+    
+    func jobDetailsViewShouldShow(view: JobDetailsView, alert: UIAlertController) {
+        present(alert, animated: true, completion: nil)
+    }
+    
+    func jobDetailsViewDidSelectSupplierAndPrice(view: JobDetailsView, supplier: Supplier, price: Double) {
+        self.order.selectedSupplier = supplier
+        self.order.selectedPrice = price
+    }
+    
+    func jobDetailsViewDidDeselectSupplierAndPrice(view: JobDetailsView) {
+        self.order.selectedSupplier = nil
+        self.order.selectedPrice = nil
+    }
 }
