@@ -1,6 +1,6 @@
 import UIKit
 
-class AuthViewController: UIViewController {
+class AuthViewController: BaseLoableViewController {
     
     let context: AppContext
     
@@ -20,14 +20,26 @@ class AuthViewController: UIViewController {
     
     // MARK: - Private methods
     
-    private func auth() {
-        context.userService.authorize()
+    private func auth(with user: User) {
+        context.userService.authorize(with: user)
         (UIApplication.shared.delegate as? AppDelegate)?.appCoordinator?.start(true)
     }
 }
 
 extension AuthViewController: AuthViewDelegate {
-    func authViewDidSelectSignIn(view: AuthView) {
-        auth()
+    func authViewDidSelectSignIn(view: AuthView, login: String, password: String) {
+        isLoading = true
+        context.userService.authRequest(login: login, password: password) { [weak self] response in
+            switch response {
+            case let .success(user):
+                guard let user = user else {
+                    fatalError("Nil User !!!")
+                }
+                self?.auth(with: user)
+            case let .failure(error):
+                fatalError(error.localizedDescription)
+            }
+            self?.isLoading = false
+        }
     }
 }

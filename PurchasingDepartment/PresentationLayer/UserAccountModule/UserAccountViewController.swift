@@ -1,6 +1,6 @@
 import UIKit
 
-class UserAccountViewController: UIViewController {
+class UserAccountViewController: BaseLoableViewController {
     enum ScreenState {
         case normal
         case editing
@@ -25,6 +25,9 @@ class UserAccountViewController: UIViewController {
     
     override func loadView() {
         let customView = UserAccountView(delegate: self)
+        if let user = context.userService.user {
+            customView.update(with: user)
+        }
         self.view = customView
     }
     

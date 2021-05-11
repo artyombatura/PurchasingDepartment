@@ -77,11 +77,13 @@ class GoodsTableViewCell: UITableViewCell {
         }
         
         topLabel.snp.makeConstraints {
-            $0.leading.trailing.equalToSuperview()
+            $0.leading.equalToSuperview().offset(10)
+            $0.trailing.equalToSuperview()
         }
         
         bottomLabel.snp.makeConstraints {
-            $0.leading.trailing.equalToSuperview()
+            $0.leading.equalToSuperview().offset(10)
+            $0.trailing.equalToSuperview()
         }
     }
 }

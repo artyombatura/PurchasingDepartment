@@ -13,4 +13,8 @@ class UserDefaultsWrapper {
     func setValue(value: Any, accessKey: String) {
         UserDefaults.standard.setValue(value, forKey: accessKey)
     }
+    
+    func removeObject(by key: String) {
+        UserDefaults.standard.removeObject(forKey: key)
+    }
 }

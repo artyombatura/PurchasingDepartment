@@ -1,6 +1,6 @@
 import UIKit
 
-class GoodsViewController: UIViewController {
+class GoodsViewController: BaseLoableViewController {
     
     var context: AppContext
     
@@ -44,20 +44,25 @@ class GoodsViewController: UIViewController {
     }
     
     private func fetch() {
-        context.fakeProductsService.getAllProducts { result in
+        isLoading = true
+        context.productsService.getAllProducts { [weak self] result in
             switch result {
             case let .success(products):
-                self.items = products
-            default:
-                return
+                guard let products = products else {
+                    return
+                }
+                self?.items = products
+            case let .failure(error):
+                fatalError("Products not fetched: \(error)")
             }
+            self?.isLoading = false
         }
     }
 }
 
 extension GoodsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 60
+        return 70
     }
 }
 

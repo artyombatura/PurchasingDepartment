@@ -8,6 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		0F1A8F202646C98300D5D3F6 /* SupplierSubview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1A8F1F2646C98300D5D3F6 /* SupplierSubview.swift */; };
+		0F1A8F30264AA7BC00D5D3F6 /* APIWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1A8F2F264AA7BC00D5D3F6 /* APIWorker.swift */; };
+		0F1A8F33264AA80B00D5D3F6 /* APIEndpointProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1A8F32264AA80B00D5D3F6 /* APIEndpointProtocol.swift */; };
+		0F1A8F37264AA83A00D5D3F6 /* AppJSONDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1A8F36264AA83A00D5D3F6 /* AppJSONDecoder.swift */; };
+		0F1A8F3A264AA85A00D5D3F6 /* AppJSONEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1A8F39264AA85A00D5D3F6 /* AppJSONEncoder.swift */; };
+		0F1A8F3D264AAABB00D5D3F6 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1A8F3C264AAABB00D5D3F6 /* APIError.swift */; };
+		0F1A8F41264AAB6D00D5D3F6 /* OrderAPIEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1A8F40264AAB6D00D5D3F6 /* OrderAPIEndpoint.swift */; };
+		0F1A8F46264ABD3600D5D3F6 /* UserAPIEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1A8F45264ABD3600D5D3F6 /* UserAPIEndpoint.swift */; };
+		0F1A8F49264AC23400D5D3F6 /* BaseLoableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1A8F48264AC23400D5D3F6 /* BaseLoableViewController.swift */; };
+		0F1A8F4C264AC4A400D5D3F6 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1A8F4B264AC4A400D5D3F6 /* APIConstants.swift */; };
+		0F86B27D264AE8A40037FC75 /* ProductsAPIEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F86B27C264AE8A40037FC75 /* ProductsAPIEndpoint.swift */; };
+		0F86B280264AF0ED0037FC75 /* SupplierAPIEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F86B27F264AF0ED0037FC75 /* SupplierAPIEndpoint.swift */; };
 		D8CDEA0054A41E1B5780F339 /* Pods_PurchasingDepartment.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEC60FB45A2EE9552F02589A /* Pods_PurchasingDepartment.framework */; };
 		F86B2CB72641D3F200C40DFF /* JobStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86B2CB62641D3F200C40DFF /* JobStatus.swift */; };
 		F86B2CBA2641D47400C40DFF /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86B2CB92641D47400C40DFF /* Order.swift */; };
@@ -62,6 +73,17 @@
 
 /* Begin PBXFileReference section */
 		0F1A8F1F2646C98300D5D3F6 /* SupplierSubview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupplierSubview.swift; sourceTree = "<group>"; };
+		0F1A8F2F264AA7BC00D5D3F6 /* APIWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIWorker.swift; sourceTree = "<group>"; };
+		0F1A8F32264AA80B00D5D3F6 /* APIEndpointProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEndpointProtocol.swift; sourceTree = "<group>"; };
+		0F1A8F36264AA83A00D5D3F6 /* AppJSONDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppJSONDecoder.swift; sourceTree = "<group>"; };
+		0F1A8F39264AA85A00D5D3F6 /* AppJSONEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppJSONEncoder.swift; sourceTree = "<group>"; };
+		0F1A8F3C264AAABB00D5D3F6 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
+		0F1A8F40264AAB6D00D5D3F6 /* OrderAPIEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderAPIEndpoint.swift; sourceTree = "<group>"; };
+		0F1A8F45264ABD3600D5D3F6 /* UserAPIEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPIEndpoint.swift; sourceTree = "<group>"; };
+		0F1A8F48264AC23400D5D3F6 /* BaseLoableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseLoableViewController.swift; sourceTree = "<group>"; };
+		0F1A8F4B264AC4A400D5D3F6 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
+		0F86B27C264AE8A40037FC75 /* ProductsAPIEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsAPIEndpoint.swift; sourceTree = "<group>"; };
+		0F86B27F264AF0ED0037FC75 /* SupplierAPIEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupplierAPIEndpoint.swift; sourceTree = "<group>"; };
 		0FB4B4A5B6752DF695BBB2DF /* Pods-PurchasingDepartment.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PurchasingDepartment.debug.xcconfig"; path = "Target Support Files/Pods-PurchasingDepartment/Pods-PurchasingDepartment.debug.xcconfig"; sourceTree = "<group>"; };
 		D3821798329F421FE89E4E09 /* Pods-PurchasingDepartment.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PurchasingDepartment.release.xcconfig"; path = "Target Support Files/Pods-PurchasingDepartment/Pods-PurchasingDepartment.release.xcconfig"; sourceTree = "<group>"; };
 		F86B2CB62641D3F200C40DFF /* JobStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobStatus.swift; sourceTree = "<group>"; };
@@ -130,6 +152,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0F1A8F29264AA74000D5D3F6 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				0F1A8F3F264AAB5F00D5D3F6 /* APIEndpoints */,
+				0F1A8F2A264AA75400D5D3F6 /* BaseAPIFiles */,
+				0F1A8F4B264AC4A400D5D3F6 /* APIConstants.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		0F1A8F2A264AA75400D5D3F6 /* BaseAPIFiles */ = {
+			isa = PBXGroup;
+			children = (
+				0F1A8F2F264AA7BC00D5D3F6 /* APIWorker.swift */,
+				0F1A8F32264AA80B00D5D3F6 /* APIEndpointProtocol.swift */,
+				0F1A8F36264AA83A00D5D3F6 /* AppJSONDecoder.swift */,
+				0F1A8F39264AA85A00D5D3F6 /* AppJSONEncoder.swift */,
+				0F1A8F3C264AAABB00D5D3F6 /* APIError.swift */,
+			);
+			path = BaseAPIFiles;
+			sourceTree = "<group>";
+		};
+		0F1A8F3F264AAB5F00D5D3F6 /* APIEndpoints */ = {
+			isa = PBXGroup;
+			children = (
+				0F1A8F40264AAB6D00D5D3F6 /* OrderAPIEndpoint.swift */,
+				0F1A8F45264ABD3600D5D3F6 /* UserAPIEndpoint.swift */,
+				0F86B27C264AE8A40037FC75 /* ProductsAPIEndpoint.swift */,
+				0F86B27F264AF0ED0037FC75 /* SupplierAPIEndpoint.swift */,
+			);
+			path = APIEndpoints;
+			sourceTree = "<group>";
+		};
 		E8A3D2AD0089785D4829914A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -308,6 +363,7 @@
 				F8B4F2A52640662700E41FF1 /* Model */,
 				F8B4F2A92640673200E41FF1 /* Helpers */,
 				F8ED5C2B26373BBD00E3860D /* Resources */,
+				0F1A8F29264AA74000D5D3F6 /* Utilities */,
 			);
 			path = PurchasingDepartment;
 			sourceTree = "<group>";
@@ -379,6 +435,7 @@
 				F8B2BBF6263F0DFA002F741A /* UnderlinedStateableTextField.swift */,
 				F8B4F2AE26406F6900E41FF1 /* BaseScrollableView.swift */,
 				F8E5F7A02645D034000D9098 /* AccessoryButtonItem.swift */,
+				0F1A8F48264AC23400D5D3F6 /* BaseLoableViewController.swift */,
 			);
 			path = PresentationLayer;
 			sourceTree = "<group>";
@@ -499,11 +556,15 @@
 			files = (
 				F8B4F2AB2640674500E41FF1 /* UserDefaultsWrapper.swift in Sources */,
 				F86B2CB72641D3F200C40DFF /* JobStatus.swift in Sources */,
+				0F86B27D264AE8A40037FC75 /* ProductsAPIEndpoint.swift in Sources */,
 				F8B4F2BD2640848D00E41FF1 /* GoodsTableViewCell.swift in Sources */,
 				F8B2BBC7263EF357002F741A /* StatusesViewController.swift in Sources */,
+				0F1A8F37264AA83A00D5D3F6 /* AppJSONDecoder.swift in Sources */,
 				F8B4F2B52640717200E41FF1 /* UIFont + Extensions.swift in Sources */,
 				F8B2BBD9263EFD57002F741A /* GoodsCoordinator.swift in Sources */,
+				0F1A8F49264AC23400D5D3F6 /* BaseLoableViewController.swift in Sources */,
 				F8B4F2B226406FA000E41FF1 /* UserAccountView.swift in Sources */,
+				0F1A8F3A264AA85A00D5D3F6 /* AppJSONEncoder.swift in Sources */,
 				F8ED5C3526373EEB00E3860D /* TabsCoordinator.swift in Sources */,
 				F8B2BBC3263EF2AD002F741A /* BaseNavigationVC.swift in Sources */,
 				F8B2BBF4263F0B78002F741A /* ActionButton.swift in Sources */,
@@ -514,22 +575,28 @@
 				F86B2CBD2641D7A500C40DFF /* OrdersService.swift in Sources */,
 				F8B4F2C826408B0D00E41FF1 /* SupplierDetailsView.swift in Sources */,
 				F8ED5C0F26373A9A00E3860D /* AppDelegate.swift in Sources */,
+				0F86B280264AF0ED0037FC75 /* SupplierAPIEndpoint.swift in Sources */,
 				F8B2BBF7263F0DFA002F741A /* UnderlinedStateableTextField.swift in Sources */,
 				F8B2BBE7263F01FD002F741A /* AuthorizationCoordinator.swift in Sources */,
 				F8B2BBDC263EFD69002F741A /* SuppliersViewController.swift in Sources */,
+				0F1A8F41264AAB6D00D5D3F6 /* OrderAPIEndpoint.swift in Sources */,
 				F8B4F2AF26406F6900E41FF1 /* BaseScrollableView.swift in Sources */,
 				F8B2BBBD263EF1AA002F741A /* UITabBarItem + Extensions.swift in Sources */,
 				F8B2BBCD263EFC99002F741A /* UIImage + Extensions.swift in Sources */,
+				0F1A8F3D264AAABB00D5D3F6 /* APIError.swift in Sources */,
 				F8BAB3652644787100E64B2C /* JobDetailsView.swift in Sources */,
+				0F1A8F46264ABD3600D5D3F6 /* UserAPIEndpoint.swift in Sources */,
 				F86B2CBA2641D47400C40DFF /* Order.swift in Sources */,
 				F8BAB3622644786A00E64B2C /* JobDetailsViewController.swift in Sources */,
 				F8E5F7A12645D034000D9098 /* AccessoryButtonItem.swift in Sources */,
 				F86B2CC72641DA4D00C40DFF /* MyOrdersListViewController.swift in Sources */,
 				F8B2BBEB263F0235002F741A /* AuthViewController.swift in Sources */,
 				F8B2BBAC263EEBE5002F741A /* AppCoordinator.swift in Sources */,
+				0F1A8F4C264AC4A400D5D3F6 /* APIConstants.swift in Sources */,
 				F8B2BBD0263EFD11002F741A /* SuppliersCoordinator.swift in Sources */,
 				F8ED5C3226373EDD00E3860D /* NavigationCoordinator.swift in Sources */,
 				F8B2BBB8263EF06D002F741A /* MainTabsViewController.swift in Sources */,
+				0F1A8F33264AA80B00D5D3F6 /* APIEndpointProtocol.swift in Sources */,
 				F86B2CC02641D91700C40DFF /* ProductsService.swift in Sources */,
 				F8B2BBC0263EF258002F741A /* JobsRequestCoordinator.swift in Sources */,
 				F8ED5C2F26373EC200E3860D /* Coordinator.swift in Sources */,
@@ -543,6 +610,7 @@
 				F8B4F2C426408B0500E41FF1 /* SupplierDetailsViewController.swift in Sources */,
 				F8B2BBA9263EE8AC002F741A /* Presentable.swift in Sources */,
 				F8B2BBEE263F024D002F741A /* AuthView.swift in Sources */,
+				0F1A8F30264AA7BC00D5D3F6 /* APIWorker.swift in Sources */,
 				F8B2BBDF263EFD91002F741A /* UserAccountViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

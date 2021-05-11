@@ -145,7 +145,10 @@ class UserAccountView: BaseScrollableView {
     }
     
     public func update(with user: User) {
-        // MARK: - TODO
+        nameTextField.text = user.name
+        surnameTextField.text = user.surname
+        emailTextField.text = user.email
+        phoneTextField.text = user.phone
     }
     
     // MARK: - Private methods
