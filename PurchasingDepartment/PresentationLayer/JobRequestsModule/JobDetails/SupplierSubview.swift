@@ -50,7 +50,7 @@ class SupplierSubview: UIView {
     
     private lazy var priceTitleLabel: UILabel = {
         let l = UILabel()
-        l.font = UIFont.app14BoldFont
+        l.font = UIFont.app14Font
         l.isHidden = true
         return l
     }()
@@ -158,7 +158,7 @@ class SupplierSubview: UIView {
         
         viewStateInfoView.snp.makeConstraints {
             $0.trailing.equalToSuperview().inset(10)
-            $0.height.width.equalTo(24)
+            $0.height.width.equalTo(20)
             $0.centerY.equalToSuperview()
         }
         
@@ -174,7 +174,7 @@ class SupplierSubview: UIView {
             $0.width.equalTo(60)
         }
         
-        viewStateInfoView.layer.cornerRadius = 12
-        removeButton.layer.cornerRadius = 12
+        viewStateInfoView.layer.cornerRadius = 10
+        removeButton.layer.cornerRadius = 10
     }
 }
