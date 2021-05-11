@@ -99,6 +99,22 @@ class SupplierDetailsView: BaseScrollableView {
         return b
     }()
     
+    public var inputedName: String? {
+        nameTextField.text
+    }
+    
+    public var inputedEmail: String? {
+        emailTextField.text
+    }
+    
+    public var inputedPhone: String? {
+        phoneTextField.text
+    }
+    
+    public var inputedAddress: String? {
+        addressTextField.text
+    }
+    
     init(supplier: Supplier? = nil, delegate: SupplierDetailsViewDelegate, state: SupplierDetailsViewController.ScreenState) {
         self.delegate = delegate
         self.viewState = state
@@ -235,6 +251,9 @@ class SupplierDetailsView: BaseScrollableView {
             emailTextField.tfState = .editable
             phoneTextField.tfState = .editable
             addressTextField.tfState = .editable
+            
+            productsTitleLabel.isHidden = true
+            productsStackView.isHidden = true
         }
     }
     

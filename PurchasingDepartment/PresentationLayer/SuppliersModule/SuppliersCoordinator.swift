@@ -30,12 +30,12 @@ class SuppliersCoordinator: NavigationCoordinator, TabPresentable, SuppliersCoor
     // MARK: - Navigations
     
     func didSelect(supplier: Supplier) {
-        let supplierDetailsVC = SupplierDetailsViewController(context: context, supplier: supplier, for: .view)
+        let supplierDetailsVC = SupplierDetailsViewController(context: context, supplier: supplier, for: .view, coordinator: self)
         push(supplierDetailsVC, animated: true)
     }
     
     func didSelectCreateNewSupplier() {
-        let supplierDetailsVC = SupplierDetailsViewController(context: context, supplier: nil, for: .create)
+        let supplierDetailsVC = SupplierDetailsViewController(context: context, supplier: nil, for: .create, coordinator: self)
         push(supplierDetailsVC, animated: true)
     }
 }

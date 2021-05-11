@@ -89,11 +89,17 @@ class UserAccountViewController: BaseLoableViewController {
             })
             
             if let login = login,
+               !login.isEmpty,
                let password = password,
+               !password.isEmpty,
                let name = name,
+               !name.isEmpty,
                let surname = surname,
+               !surname.isEmpty,
                let phone = phone,
-               let email = email {
+               !phone.isEmpty,
+               let email = email,
+               !email.isEmpty {
                 
                 self.context.userService.register(login: login,
                                              password: password,

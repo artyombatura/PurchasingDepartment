@@ -2,6 +2,8 @@ import Foundation
 
 protocol SuppliersServiceProtocol {
     func getSuppliers(completion: @escaping ((Result<[Supplier], Error>) -> Void))
+    
+    func registerSupplier(name: String, email: String, address: String, phone: String, completion: @escaping ((Error?) -> Void))
 }
 
 class SuppliersService: SuppliersServiceProtocol {
@@ -18,6 +20,16 @@ class SuppliersService: SuppliersServiceProtocol {
             case let .failure(error):
                 completion(.failure(error))
             }
+        }
+    }
+    
+    func registerSupplier(name: String, email: String, address: String, phone: String, completion: @escaping ((Error?) -> Void)) {
+        let registerSupplierEndpoint = SupplierAPIEndpoint.registerSupplier(name: name,
+                                                                            email: email,
+                                                                            address: address,
+                                                                            phone: phone)
+        APIWorker.shared.postWithoutResponseRequest(api: registerSupplierEndpoint) { error in
+            completion(error)
         }
     }
 }
@@ -39,4 +51,6 @@ class FakeSuppliersService: SuppliersServiceProtocol {
             }
         })
     }
+    
+    func registerSupplier(name: String, email: String, address: String, phone: String, completion: @escaping ((Error?) -> Void)) { }
 }

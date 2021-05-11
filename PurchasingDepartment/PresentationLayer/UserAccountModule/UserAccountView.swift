@@ -90,6 +90,7 @@ class UserAccountView: BaseScrollableView {
                 return
             }
         }
+        b.isHidden = true
         return b
     }()
     
