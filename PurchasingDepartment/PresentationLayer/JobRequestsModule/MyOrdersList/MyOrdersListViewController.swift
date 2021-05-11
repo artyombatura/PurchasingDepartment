@@ -8,6 +8,7 @@ class MyOrdersListViewController: UIViewController {
         var orders: [Order]
     }
     
+    private let coordinator: JobsRequestCoordinator
     private let jobStatus: JobStatus
     private var items: [SectionViewModel] = [] {
         didSet {
@@ -23,7 +24,8 @@ class MyOrdersListViewController: UIViewController {
         return tv
     }()
     
-    init(jobStatus: JobStatus, context: AppContext) {
+    init(jobStatus: JobStatus, context: AppContext, coordinator: JobsRequestCoordinator) {
+        self.coordinator = coordinator
         self.jobStatus = jobStatus
         self.context = context
         super.init(nibName: nil, bundle: nil)
@@ -71,6 +73,11 @@ class MyOrdersListViewController: UIViewController {
 extension MyOrdersListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60.0
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let item = items[indexPath.section].orders[indexPath.row]
+        coordinator.showOrderDetails(order: item)
     }
 }
 

@@ -23,7 +23,12 @@ class JobsRequestCoordinator: NavigationCoordinator, TabPresentable {
     }
     
     func showJobsList(for status: JobStatus) {
-        let list = MyOrdersListViewController(jobStatus: status, context: context)
+        let list = MyOrdersListViewController(jobStatus: status, context: context, coordinator: self)
         push(list, animated: true)
+    }
+    
+    func showOrderDetails(order: Order) {
+        let detailsVC = JobDetailsViewController(order: order, context: context, coordinator: self)
+        push(detailsVC, animated: true)
     }
 }

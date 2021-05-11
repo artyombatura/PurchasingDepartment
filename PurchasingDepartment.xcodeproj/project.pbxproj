@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F1A8F202646C98300D5D3F6 /* SupplierSubview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1A8F1F2646C98300D5D3F6 /* SupplierSubview.swift */; };
 		D8CDEA0054A41E1B5780F339 /* Pods_PurchasingDepartment.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEC60FB45A2EE9552F02589A /* Pods_PurchasingDepartment.framework */; };
 		F86B2CB72641D3F200C40DFF /* JobStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86B2CB62641D3F200C40DFF /* JobStatus.swift */; };
 		F86B2CBA2641D47400C40DFF /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86B2CB92641D47400C40DFF /* Order.swift */; };
@@ -45,6 +46,10 @@
 		F8B4F2C02640890200E41FF1 /* Supplier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B4F2BF2640890200E41FF1 /* Supplier.swift */; };
 		F8B4F2C426408B0500E41FF1 /* SupplierDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B4F2C326408B0500E41FF1 /* SupplierDetailsViewController.swift */; };
 		F8B4F2C826408B0D00E41FF1 /* SupplierDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B4F2C726408B0D00E41FF1 /* SupplierDetailsView.swift */; };
+		F8BAB3622644786A00E64B2C /* JobDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BAB3612644786A00E64B2C /* JobDetailsViewController.swift */; };
+		F8BAB3652644787100E64B2C /* JobDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BAB3642644787100E64B2C /* JobDetailsView.swift */; };
+		F8D89507264878430036576B /* Date + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D89506264878430036576B /* Date + Extension.swift */; };
+		F8E5F7A12645D034000D9098 /* AccessoryButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E5F7A02645D034000D9098 /* AccessoryButtonItem.swift */; };
 		F8ED5C0F26373A9A00E3860D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ED5C0E26373A9A00E3860D /* AppDelegate.swift */; };
 		F8ED5C1826373A9C00E3860D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8ED5C1726373A9C00E3860D /* Assets.xcassets */; };
 		F8ED5C1B26373A9C00E3860D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8ED5C1926373A9C00E3860D /* LaunchScreen.storyboard */; };
@@ -56,6 +61,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0F1A8F1F2646C98300D5D3F6 /* SupplierSubview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupplierSubview.swift; sourceTree = "<group>"; };
 		0FB4B4A5B6752DF695BBB2DF /* Pods-PurchasingDepartment.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PurchasingDepartment.debug.xcconfig"; path = "Target Support Files/Pods-PurchasingDepartment/Pods-PurchasingDepartment.debug.xcconfig"; sourceTree = "<group>"; };
 		D3821798329F421FE89E4E09 /* Pods-PurchasingDepartment.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PurchasingDepartment.release.xcconfig"; path = "Target Support Files/Pods-PurchasingDepartment/Pods-PurchasingDepartment.release.xcconfig"; sourceTree = "<group>"; };
 		F86B2CB62641D3F200C40DFF /* JobStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobStatus.swift; sourceTree = "<group>"; };
@@ -95,6 +101,10 @@
 		F8B4F2BF2640890200E41FF1 /* Supplier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Supplier.swift; sourceTree = "<group>"; };
 		F8B4F2C326408B0500E41FF1 /* SupplierDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupplierDetailsViewController.swift; sourceTree = "<group>"; };
 		F8B4F2C726408B0D00E41FF1 /* SupplierDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupplierDetailsView.swift; sourceTree = "<group>"; };
+		F8BAB3612644786A00E64B2C /* JobDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailsViewController.swift; sourceTree = "<group>"; };
+		F8BAB3642644787100E64B2C /* JobDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailsView.swift; sourceTree = "<group>"; };
+		F8D89506264878430036576B /* Date + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date + Extension.swift"; sourceTree = "<group>"; };
+		F8E5F7A02645D034000D9098 /* AccessoryButtonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessoryButtonItem.swift; sourceTree = "<group>"; };
 		F8ED5C0B26373A9A00E3860D /* PurchasingDepartment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PurchasingDepartment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8ED5C0E26373A9A00E3860D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F8ED5C1726373A9C00E3860D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -148,6 +158,7 @@
 		F8B2BBAE263EEBEC002F741A /* JobRequestsModule */ = {
 			isa = PBXGroup;
 			children = (
+				F8BAB3602644784000E64B2C /* JobDetails */,
 				F86B2CC52641DA3400C40DFF /* MyOrdersList */,
 				F8B2BBC5263EF344002F741A /* StatusesMain */,
 				F8B2BBBF263EF258002F741A /* JobsRequestCoordinator.swift */,
@@ -246,6 +257,7 @@
 			isa = PBXGroup;
 			children = (
 				F8B4F2AA2640674500E41FF1 /* UserDefaultsWrapper.swift */,
+				F8D89506264878430036576B /* Date + Extension.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -257,6 +269,16 @@
 				F8B4F2C726408B0D00E41FF1 /* SupplierDetailsView.swift */,
 			);
 			path = SupplierDetails;
+			sourceTree = "<group>";
+		};
+		F8BAB3602644784000E64B2C /* JobDetails */ = {
+			isa = PBXGroup;
+			children = (
+				F8BAB3612644786A00E64B2C /* JobDetailsViewController.swift */,
+				F8BAB3642644787100E64B2C /* JobDetailsView.swift */,
+				0F1A8F1F2646C98300D5D3F6 /* SupplierSubview.swift */,
+			);
+			path = JobDetails;
 			sourceTree = "<group>";
 		};
 		F8ED5C0226373A9A00E3860D = {
@@ -356,6 +378,7 @@
 				F8B2BBF3263F0B78002F741A /* ActionButton.swift */,
 				F8B2BBF6263F0DFA002F741A /* UnderlinedStateableTextField.swift */,
 				F8B4F2AE26406F6900E41FF1 /* BaseScrollableView.swift */,
+				F8E5F7A02645D034000D9098 /* AccessoryButtonItem.swift */,
 			);
 			path = PresentationLayer;
 			sourceTree = "<group>";
@@ -497,7 +520,10 @@
 				F8B4F2AF26406F6900E41FF1 /* BaseScrollableView.swift in Sources */,
 				F8B2BBBD263EF1AA002F741A /* UITabBarItem + Extensions.swift in Sources */,
 				F8B2BBCD263EFC99002F741A /* UIImage + Extensions.swift in Sources */,
+				F8BAB3652644787100E64B2C /* JobDetailsView.swift in Sources */,
 				F86B2CBA2641D47400C40DFF /* Order.swift in Sources */,
+				F8BAB3622644786A00E64B2C /* JobDetailsViewController.swift in Sources */,
+				F8E5F7A12645D034000D9098 /* AccessoryButtonItem.swift in Sources */,
 				F86B2CC72641DA4D00C40DFF /* MyOrdersListViewController.swift in Sources */,
 				F8B2BBEB263F0235002F741A /* AuthViewController.swift in Sources */,
 				F8B2BBAC263EEBE5002F741A /* AppCoordinator.swift in Sources */,
@@ -507,9 +533,11 @@
 				F86B2CC02641D91700C40DFF /* ProductsService.swift in Sources */,
 				F8B2BBC0263EF258002F741A /* JobsRequestCoordinator.swift in Sources */,
 				F8ED5C2F26373EC200E3860D /* Coordinator.swift in Sources */,
+				F8D89507264878430036576B /* Date + Extension.swift in Sources */,
 				F8B2BBE2263EFDAA002F741A /* GoodsViewController.swift in Sources */,
 				F86B2CC32641D99800C40DFF /* SuppliersService.swift in Sources */,
 				F8B2BBD5263EFD40002F741A /* UserAccountCoordinator.swift in Sources */,
+				0F1A8F202646C98300D5D3F6 /* SupplierSubview.swift in Sources */,
 				F8B4F2C02640890200E41FF1 /* Supplier.swift in Sources */,
 				F8B2BBFA263F0F50002F741A /* UIColor + Extensions.swift in Sources */,
 				F8B4F2C426408B0500E41FF1 /* SupplierDetailsViewController.swift in Sources */,
@@ -658,7 +686,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3TG9F8VMYJ;
 				INFOPLIST_FILE = "$(SRCROOT)/PurchasingDepartment/Resources/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -679,7 +707,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3TG9F8VMYJ;
 				INFOPLIST_FILE = "$(SRCROOT)/PurchasingDepartment/Resources/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
