@@ -1,6 +1,6 @@
 import UIKit
 
-class SuppliersViewController: UIViewController {
+class SuppliersViewController: BaseLoableViewController {
     
     var coordinator: SuppliersCoordinatorProtocol?
     var context: AppContext
@@ -30,13 +30,18 @@ class SuppliersViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        fetch()
+    
         setupUI()
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add,
                                                             target: self,
                                                             action: #selector(addNewSupplierAction))
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        fetch()
     }
     
     private func setupUI() {
@@ -47,12 +52,16 @@ class SuppliersViewController: UIViewController {
     }
     
     private func fetch() {
-        context.fakeSuppliersService.getSuppliers { result in
+        self.isLoading = true
+        context.suppliersService.getSuppliers { [weak self] result in
             switch result {
             case let .success(suppliers):
-                self.suppliers = suppliers
-            default:
-                return
+                self?.suppliers = suppliers
+                self?.isLoading = false
+            case .failure(_):
+                self?.context.alertDispatcher.showInfoAlert(title: "Ошибка сети", message: "") {
+                    self?.isLoading = false
+                }
             }
         }
     }

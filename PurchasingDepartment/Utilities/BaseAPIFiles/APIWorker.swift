@@ -29,4 +29,22 @@ class APIWorker {
                        }
         }
     }
+    
+    func postWithoutResponseRequest(api: APIEndpoint, completion: @escaping ((Error?) -> Void)) {
+        if let url = api.url {
+            AF.request(url,
+                       method: api.method,
+                       parameters: api.parameters,
+                       encoding: api.encoding,
+                       headers: api.headers,
+                       interceptor: nil,
+                       requestModifier: nil).response { response in
+                        if let error = response.error {
+                            completion(error as Error)
+                        } else {
+                            completion(nil)
+                        }
+                       }
+        }
+    }
 }

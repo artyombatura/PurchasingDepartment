@@ -2,6 +2,7 @@ import Foundation
 
 struct User: Codable {
     let login: String
+    let password: String
     let name: String
     let surname: String
     let email: String

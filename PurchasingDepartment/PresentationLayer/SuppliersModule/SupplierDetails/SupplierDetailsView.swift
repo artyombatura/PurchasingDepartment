@@ -77,6 +77,15 @@ class SupplierDetailsView: BaseScrollableView {
         return l
     }()
     
+    private lazy var productsStackView: UIStackView = {
+        let sv = UIStackView()
+        sv.alignment = .center
+        sv.distribution = .equalSpacing
+        sv.axis = .vertical
+        sv.spacing = 10
+        return sv
+    }()
+    
     private lazy var positiveButton: ActionButton = {
         let b = ActionButton()
         b.title = "Добавить"
@@ -126,6 +135,7 @@ class SupplierDetailsView: BaseScrollableView {
         contentView.addSubview(addressTitleLabel)
         contentView.addSubview(addressTextField)
         contentView.addSubview(productsTitleLabel)
+        contentView.addSubview(productsStackView)
         contentView.addSubview(positiveButton)
 
         
@@ -190,19 +200,24 @@ class SupplierDetailsView: BaseScrollableView {
             make.top.equalTo(addressTextField.snp.bottom).offset(verticalOffset)
             make.height.equalTo(titleHeight)
         }
-
+        
+        productsStackView.snp.makeConstraints { make in
+            make.top.equalTo(productsTitleLabel.snp.bottom).offset(modulesVerticalOffset)
+            make.leading.trailing.equalTo(nameTitleLabel)
+        }
+        
         positiveButton.snp.makeConstraints { make in
-            make.height.equalTo(45)
             make.width.equalTo(200)
-            make.bottom.equalTo(self.snp.bottomMargin).inset(50)
+            make.height.equalTo(48)
             make.centerX.equalToSuperview()
+            make.top.equalTo(productsStackView.snp.bottom).offset(40)
         }
         
         contentView.snp.makeConstraints {
             $0.top.bottom.equalTo(scrollView)
             $0.left.right.equalTo(scrollView)
             $0.width.equalTo(scrollView)
-            $0.height.equalToSuperview()
+            $0.bottom.equalTo(positiveButton.snp.bottom).offset(40)
         }
     }
     
@@ -231,5 +246,21 @@ class SupplierDetailsView: BaseScrollableView {
         emailTextField.text = supplier.email
         phoneTextField.text = supplier.phone
         addressTextField.text = supplier.address
+        
+        switch viewState {
+        case .view:
+            if let products = supplier.products {
+                products.forEach { product in
+                    let productView = SupplierProductView(product: product)
+                    productsStackView.addArrangedSubview(productView)
+                    productView.snp.makeConstraints {
+                        $0.leading.trailing.equalToSuperview()
+                        $0.height.equalTo(50)
+                    }
+                }
+            }
+        case .create:
+            break
+        }
     }
 }

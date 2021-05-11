@@ -9,6 +9,8 @@ protocol UserServiceProtocol {
     func deauthorize()
     
     func authRequest(login: String, password: String, completion: @escaping (Result<User?, Error>) -> Void)
+    
+    func register(login: String, password: String, name: String, surname: String, email: String, phone: String, completion: @escaping ((Error?) -> Void))
 }
 
 class UserService: UserServiceProtocol {
@@ -70,6 +72,18 @@ class UserService: UserServiceProtocol {
             case let .failure(error):
                 completion(.failure(error))
             }
+        }
+    }
+    
+    func register(login: String, password: String, name: String, surname: String, email: String, phone: String, completion: @escaping ((Error?) -> Void)) {
+        let userAPI = UserAPIEndpoint.register(login: login,
+                                               password: password,
+                                               name: name,
+                                               surname: surname,
+                                               email: email,
+                                               phone: phone)
+        APIWorker.shared.postWithoutResponseRequest(api: userAPI) { error in
+            completion(error)
         }
     }
 }

@@ -52,10 +52,12 @@ class GoodsViewController: BaseLoableViewController {
                     return
                 }
                 self?.items = products
-            case let .failure(error):
-                fatalError("Products not fetched: \(error)")
+                self?.isLoading = false
+            case let .failure(_):
+                self?.context.alertDispatcher.showInfoAlert(title: "Ошибка сети", message: nil, okAction: {
+                    self?.isLoading = false
+                })
             }
-            self?.isLoading = false
         }
     }
 }

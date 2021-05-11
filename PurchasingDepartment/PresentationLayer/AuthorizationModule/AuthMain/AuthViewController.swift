@@ -33,13 +33,16 @@ extension AuthViewController: AuthViewDelegate {
             switch response {
             case let .success(user):
                 guard let user = user else {
-                    fatalError("Nil User !!!")
+                    self?.context.alertDispatcher.showInfoAlert(title: "Ошибка сети", message: nil, okAction: nil)
+                    return
                 }
                 self?.auth(with: user)
-            case let .failure(error):
-                fatalError(error.localizedDescription)
+                self?.isLoading = false
+            case let .failure(_):
+                self?.context.alertDispatcher.showInfoAlert(title: "Ошибка сети", message: nil, okAction: {
+                    self?.isLoading = false
+                })
             }
-            self?.isLoading = false
         }
     }
 }
