@@ -144,18 +144,6 @@ class SupplierSubview: UIView {
             $0.edges.equalToSuperview()
         }
         
-        supplierNameTitleLabel.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(2)
-            $0.leading.equalToSuperview().offset(6)
-            $0.trailing.equalToSuperview().inset(6)
-            $0.height.equalTo(14)
-        }
-        
-        supplierEmailTitleLabel.snp.makeConstraints {
-            $0.top.equalTo(supplierNameTitleLabel).offset(20)
-            $0.leading.trailing.height.equalTo(supplierNameTitleLabel)
-        }
-        
         viewStateInfoView.snp.makeConstraints {
             $0.trailing.equalToSuperview().inset(10)
             $0.height.width.equalTo(20)
@@ -172,6 +160,18 @@ class SupplierSubview: UIView {
             $0.trailing.equalTo(viewStateInfoView.snp.leading).inset(4)
             $0.centerY.equalToSuperview()
             $0.width.equalTo(60)
+        }
+        
+        supplierNameTitleLabel.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(2)
+            $0.leading.equalToSuperview().offset(6)
+            $0.trailing.equalTo(removeButton.snp.leading).inset(20)
+            $0.height.equalTo(14)
+        }
+        
+        supplierEmailTitleLabel.snp.makeConstraints {
+            $0.top.equalTo(supplierNameTitleLabel).offset(20)
+            $0.leading.trailing.height.equalTo(supplierNameTitleLabel)
         }
         
         viewStateInfoView.layer.cornerRadius = 10

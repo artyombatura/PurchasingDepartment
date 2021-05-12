@@ -1,25 +1,35 @@
 import Foundation
 
 protocol OrdersServiceProtocol {
-    func getOrders(for status: JobStatus, completion: @escaping ((Result<[Order], Error>) -> Void))
+    func getOrders(for status: JobStatus, completion: @escaping ((Result<[Order]?, Error>) -> Void))
+    func postOrder(order: Order, completion: @escaping ((Error?) -> Void))
 }
 
 class OrdersService: OrdersServiceProtocol {
-    func getOrders(for status: JobStatus, completion: @escaping ((Result<[Order], Error>) -> Void)) {
-        completion(.success([]))
-
+    func getOrders(for status: JobStatus, completion: @escaping ((Result<[Order]?, Error>) -> Void)) {
+        let ordersAPI = OrderAPIEndpoint.getOrders(status: status)
+        APIWorker.shared.request(api: ordersAPI, [Order].self) { result in
+            completion(result)
+        }
+    }
+    
+    func postOrder(order: Order, completion: @escaping ((Error?) -> Void)) {
+        let api = OrderAPIEndpoint.sendOrder(order: order)
+        APIWorker.shared.postWithoutResponseRequest(api: api) { error in
+            completion(error)
+        }
     }
 }
 
 class FakeOrdersService: OrdersServiceProtocol {
-    func getOrders(for status: JobStatus, completion: @escaping ((Result<[Order], Error>) -> Void)) {
+    func getOrders(for status: JobStatus, completion: @escaping ((Result<[Order]?, Error>) -> Void)) {
         var fakeSuppliers: [Supplier]?
         FakeSuppliersService().getSuppliers { result in
             fakeSuppliers = try? result.get()
         }
         var orders: [Order] = [
             // requested
-            Order(id: "1",
+            Order(orderId: 1,
                   name: "Ручка синяя",
                   partNumber: "011_dsa_12",
                   numberOfItems: 10,
@@ -29,8 +39,8 @@ class FakeOrdersService: OrdersServiceProtocol {
                   status: .requested,
                   selectedPrice: nil,
                   suppliers: fakeSuppliers,
-                  selectedSupplier: nil),
-            Order(id: "1",
+                  selectedSupplierId: nil),
+            Order(orderId: 1,
                   name: "Ручка синяя",
                   partNumber: "011_dsa_12",
                   numberOfItems: 10,
@@ -40,9 +50,9 @@ class FakeOrdersService: OrdersServiceProtocol {
                   status: .requested,
                   selectedPrice: nil,
                   suppliers: fakeSuppliers,
-                  selectedSupplier: nil),
+                  selectedSupplierId: nil),
             // awaitingForPrice
-            Order(id: "1",
+            Order(orderId: 1,
                   name: "Ручка синяя",
                   partNumber: "011_dsa_12",
                   numberOfItems: 10,
@@ -52,8 +62,8 @@ class FakeOrdersService: OrdersServiceProtocol {
                   status: .awaitingForPrice,
                   selectedPrice: nil,
                   suppliers: fakeSuppliers,
-                  selectedSupplier: nil),
-            Order(id: "1",
+                  selectedSupplierId: nil),
+            Order(orderId: 1,
                   name: "Ручка синяя",
                   partNumber: "011_dsa_12",
                   numberOfItems: 10,
@@ -63,9 +73,9 @@ class FakeOrdersService: OrdersServiceProtocol {
                   status: .awaitingForPrice,
                   selectedPrice: nil,
                   suppliers: fakeSuppliers,
-                  selectedSupplier: nil),
+                  selectedSupplierId: nil),
             // inProgress
-            Order(id: "1",
+            Order(orderId: 1,
                   name: "Ручка синяя",
                   partNumber: "011_dsa_12",
                   numberOfItems: 10,
@@ -75,8 +85,8 @@ class FakeOrdersService: OrdersServiceProtocol {
                   status: .inProgress,
                   selectedPrice: 400,
                   suppliers: nil,
-                  selectedSupplier: fakeSuppliers?.first),
-            Order(id: "1",
+                  selectedSupplierId: 1),
+            Order(orderId: 1,
                   name: "Ручка синяя",
                   partNumber: "011_dsa_12",
                   numberOfItems: 10,
@@ -86,9 +96,9 @@ class FakeOrdersService: OrdersServiceProtocol {
                   status: .inProgress,
                   selectedPrice: 400,
                   suppliers: nil,
-                  selectedSupplier: fakeSuppliers?.first),
+                  selectedSupplierId: 1),
             // dispute
-            Order(id: "1",
+            Order(orderId: 1,
                   name: "Ручка синяя",
                   partNumber: "011_dsa_12",
                   numberOfItems: 10,
@@ -98,8 +108,8 @@ class FakeOrdersService: OrdersServiceProtocol {
                   status: .dispute,
                   selectedPrice: 400,
                   suppliers: nil,
-                  selectedSupplier: fakeSuppliers?.first),
-            Order(id: "1",
+                  selectedSupplierId: 1),
+            Order(orderId: 1,
                   name: "Ручка синяя",
                   partNumber: "011_dsa_12",
                   numberOfItems: 10,
@@ -109,9 +119,9 @@ class FakeOrdersService: OrdersServiceProtocol {
                   status: .dispute,
                   selectedPrice: 400,
                   suppliers: nil,
-                  selectedSupplier: fakeSuppliers?.first),
+                  selectedSupplierId: 1),
             // completed
-            Order(id: "1",
+            Order(orderId: 1,
                   name: "Ручка синяя",
                   partNumber: "011_dsa_12",
                   numberOfItems: 10,
@@ -121,8 +131,8 @@ class FakeOrdersService: OrdersServiceProtocol {
                   status: .completed,
                   selectedPrice: 400,
                   suppliers: nil,
-                  selectedSupplier: fakeSuppliers?.first),
-            Order(id: "1",
+                  selectedSupplierId: 1),
+            Order(orderId: 1,
                   name: "Ручка синяя",
                   partNumber: "011_dsa_12",
                   numberOfItems: 10,
@@ -132,9 +142,11 @@ class FakeOrdersService: OrdersServiceProtocol {
                   status: .completed,
                   selectedPrice: 400,
                   suppliers: nil,
-                  selectedSupplier: fakeSuppliers?.first),
+                  selectedSupplierId: 1),
         ]
         orders.removeAll { $0.status != status }
         completion(.success(orders))
     }
+    
+    func postOrder(order: Order, completion: @escaping ((Error?) -> Void)) { }
 }

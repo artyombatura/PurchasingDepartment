@@ -1,6 +1,6 @@
 import Foundation
 
-enum JobStatus: String {
+enum JobStatus: String, Codable {
     case requested
     case awaitingForPrice
     case inProgress

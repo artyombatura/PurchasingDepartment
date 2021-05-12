@@ -7,5 +7,6 @@ target 'PurchasingDepartment' do
 
   # Pods for PurchasingDepartment
   pod 'SnapKit', '~> 5.0.0'
+  pod 'Alamofire', '~> 5.2'
 
 end

@@ -1,7 +1,14 @@
 import UIKit
-import SnapKit
 
-class GoodsTableViewCell: UITableViewCell {
+class SupplierProductView: UIView {
+    
+    let product: ProductCatalog
+    
+    private lazy var containerView: UIView = {
+        let v = UIView(frame: .zero)
+        v.backgroundColor = .white
+        return v
+    }()
     
     private lazy var contentStackView: UIStackView = {
         let sv = UIStackView(arrangedSubviews: [topLabel, bottomLabel])
@@ -13,28 +20,40 @@ class GoodsTableViewCell: UITableViewCell {
     
     private lazy var topLabel: UILabel = {
         let l = UILabel()
-        l.text = "12332213"
+        l.text = ""
         return l
     }()
     
     private lazy var bottomLabel: UILabel = {
         let l = UILabel()
-        l.text = "31231231"
+        l.text = ""
         return l
     }()
     
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
+    init(product: ProductCatalog) {
+        self.product = product
+        super.init(frame: .zero)
         setupUI()
+        configure(for: product)
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: - Public methods
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        layer.backgroundColor = UIColor.clear.cgColor
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowOffset = CGSize(width: 0, height: 1.0)
+        layer.shadowOpacity = 0.2
+        layer.shadowRadius = 4.0
+
+        layer.cornerRadius = 14
+    }
     
-    public func configure(for item: ProductCatalog) {
+    private func configure(for item: ProductCatalog) {
         let nameTitle = "Название: "
         let nameAndMeasurement = "\(item.name) (\(item.measurementUnit))"
         
@@ -71,7 +90,13 @@ class GoodsTableViewCell: UITableViewCell {
     // MARK: - Private methods
     
     private func setupUI() {
-        addSubview(contentStackView)
+        addSubview(containerView)
+        containerView.addSubview(contentStackView)
+        
+        containerView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        
         contentStackView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }

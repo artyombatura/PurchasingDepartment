@@ -2,7 +2,7 @@ import UIKit
 import SnapKit
 
 protocol AuthViewDelegate: AnyObject {
-    func authViewDidSelectSignIn(view: AuthView)
+    func authViewDidSelectSignIn(view: AuthView, login: String, password: String)
 }
 
 class AuthView: UIView {
@@ -36,10 +36,12 @@ class AuthView: UIView {
         b.backgroundColor = .black
         b.title = "Войти"
         b.action = { [weak self] in
-            guard let self = self else {
+            guard let self = self,
+                  let login = self.loginTextField.text,
+                  let password = self.passwordTextField.text else {
                 return
             }
-            self.delegate?.authViewDidSelectSignIn(view: self)
+            self.delegate?.authViewDidSelectSignIn(view: self, login: login, password: password)
         }
         b.layer.cornerRadius = 25
         return b

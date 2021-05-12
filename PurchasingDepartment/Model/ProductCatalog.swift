@@ -1,6 +1,6 @@
 import Foundation
 
-struct ProductCatalog {
+struct ProductCatalog: Codable {
     let name: String
     let partNumber: String
     let measurementUnit: String
