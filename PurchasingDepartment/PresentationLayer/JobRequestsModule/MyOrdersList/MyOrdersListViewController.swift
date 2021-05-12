@@ -1,7 +1,7 @@
 import Foundation
 import UIKit
 
-class MyOrdersListViewController: UIViewController {
+class MyOrdersListViewController: BaseLoableViewController {
     
     struct SectionViewModel {
         var sectionNumber: Int
@@ -43,23 +43,42 @@ class MyOrdersListViewController: UIViewController {
             $0.edges.equalToSuperview()
         }
         
-        fetch()
-        
         title = jobStatus.plainTitle
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+        fetch()
     }
     
     // MARK: - Private methods
     
     private func fetch() {
-        context.fakeOrdersService.getOrders(for: jobStatus) { result in
-            switch result {
-            case let .success(orders):
-                self.items = self.prepareOrdersForDisplaying(orders: orders)
-            default:
+        isLoading = true
+        context.ordersService.getOrders(for: jobStatus) { [weak self] result in
+            guard let self = self else {
                 return
             }
-        }
-    }
+            
+            switch result {
+            case let .success(orders):
+                guard var orders = orders else {
+                    self.context.alertDispatcher.showInfoAlert(title: "Ошибка сети", message: nil) {
+                        self.isLoading = false
+                    }
+                    return
+                }
+//                orders.removeAll { $0.status != self.jobStatus }
+                self.items = self.prepareOrdersForDisplaying(orders: orders)
+                self.isLoading = false
+                
+            case .failure(_):
+                self.context.alertDispatcher.showInfoAlert(title: "Ошибка сети", message: nil) {
+                    self.isLoading = false
+                }
+            }
+        }    }
     
     private func prepareOrdersForDisplaying(orders: [Order]) -> [SectionViewModel] {
         let chunkedOrders = Array(Dictionary(grouping: orders){$0.requestNumber}.values)

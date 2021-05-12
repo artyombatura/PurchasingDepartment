@@ -10,6 +10,9 @@ protocol JobDetailsViewDelegate: AnyObject {
     
     func jobDetailsViewDidSelectSupplierAndPrice(view: JobDetailsView, supplier: Supplier, price: Double)
     func jobDetailsViewDidDeselectSupplierAndPrice(view: JobDetailsView)
+    
+    func jobDetailsViewOnPositiveButton(view: JobDetailsView)
+    func jobDetailsViewOnNegativeButton(view: JobDetailsView)
 }
 
 class JobDetailsView: BaseScrollableView {
@@ -139,8 +142,24 @@ class JobDetailsView: BaseScrollableView {
         b.setAction { [weak self] in
             self?.positiveButtonAction()
         }
-        b.title = "Отправить"
+        switch order.status {
+        case .requested, .awaitingForPrice:
+            b.title = "Отправить"
+        case .inProgress, .dispute:
+            b.title = "Завершить"
+        default:
+            b.title = ""
+        }
         b.layer.cornerRadius = 25
+        return b
+    }()
+    
+    private lazy var openDisputeButton: UIButton = {
+        let b = UIButton(frame: .zero)
+        b.addTarget(self, action: #selector(openDisputeAction), for: .touchUpInside)
+        b.setTitleColor(.red, for: .normal)
+        b.setTitle("Открыть спор", for: .normal)
+        b.backgroundColor =  .white
         return b
     }()
     
@@ -166,10 +185,16 @@ class JobDetailsView: BaseScrollableView {
         formatter.dateFormat = AppContext.Constant.dateFormate
         return formatter
     }()
+    var context: AppContext
     
-    init(order: Order, delegate: JobDetailsViewDelegate?) {
+    var note: String {
+        noteTextField.text ?? "Test empty note"
+    }
+    
+    init(order: Order, delegate: JobDetailsViewDelegate?, context: AppContext) {
         self.order = order
         self.delegate = delegate
+        self.context = context
         super.init()
         self.backgroundColor = .white
         self.scrollView.backgroundColor = .white
@@ -207,6 +232,7 @@ class JobDetailsView: BaseScrollableView {
         contentView.addSubview(suppliersTitleLabel)
         contentView.addSubview(suppliersStackView)
         contentView.addSubview(positivieButton)
+        contentView.addSubview(openDisputeButton)
         
         let sideOffset: CGFloat = 20.0
         let modulesVerticalOffset: CGFloat = 3.0
@@ -308,6 +334,13 @@ class JobDetailsView: BaseScrollableView {
             make.top.equalTo(suppliersStackView.snp.bottom).offset(40)
         }
         
+        openDisputeButton.snp.makeConstraints { make in
+            make.top.equalTo(positivieButton.snp.bottom).offset(20)
+            make.leading.equalToSuperview().offset(40)
+            make.trailing.equalToSuperview().inset(40)
+            make.height.equalTo(20)
+        }
+        
         addDateButton.layer.cornerRadius = 12
         removeDateButton.layer.cornerRadius = 12
 
@@ -315,14 +348,20 @@ class JobDetailsView: BaseScrollableView {
             $0.top.bottom.equalTo(scrollView)
             $0.left.right.equalTo(scrollView)
             $0.width.equalTo(scrollView)
-            $0.bottom.equalTo(positivieButton.snp.bottom).offset(40)
+            $0.bottom.equalTo(openDisputeButton.snp.bottom).offset(40)
         }
     }
     
     // MARK: - Actions
     
     private func positiveButtonAction() {
-        print("did tap positive button")
+        self.delegate?.jobDetailsViewOnPositiveButton(view: self)
+    }
+    
+    // MARK: - Actions
+    
+    @objc private func openDisputeAction() {
+        self.delegate?.jobDetailsViewOnNegativeButton(view: self)
     }
     
     private func addDate() {
@@ -381,7 +420,8 @@ class JobDetailsView: BaseScrollableView {
         partNumberTextField.text = order.partNumber
         noteTextField.text = order.note ?? ""
         countTextField.text = String(order.numberOfItems)
-        if let date = order.date {
+        if let date = order.date,
+           order.status != .requested {
             selectedDateTextField.text = date
         }
     
@@ -438,7 +478,7 @@ class JobDetailsView: BaseScrollableView {
                                 }
                                 
                                 self.delegate?.jobDetailsViewDidSelectSupplierAndPrice(view: self, supplier: supplier, price: price)
-                                self.order.selectedSupplier = supplier
+                                self.order.selectedSupplierId = supplier.id
                                 self.order.selectedPrice = price
                                 
                                 supplierView.update(for: supplier, viewState: .selected(price: price))
@@ -450,7 +490,7 @@ class JobDetailsView: BaseScrollableView {
                             
                         case .selected(_):
                             self.delegate?.jobDetailsViewDidDeselectSupplierAndPrice(view: self)
-                            self.order.selectedSupplier = nil
+                            self.order.selectedSupplierId = nil
                             self.order.selectedPrice = nil
                             supplierView.update(for: supplier, viewState: .notSelected)
                             
@@ -468,15 +508,28 @@ class JobDetailsView: BaseScrollableView {
             }
             
         case .inProgress, .dispute, .completed:
-            if let selectedSupplier = order.selectedSupplier,
+            if let selectedSupplierId = order.selectedSupplierId,
                let selectedPrice = order.selectedPrice {
-                let supplierView = SupplierSubview(supplier: selectedSupplier)
-                supplierView.update(for: selectedSupplier, viewState: .selected(price: selectedPrice))
-                suppliersStackView.addArrangedSubview(supplierView)
-                supplierView.snp.makeConstraints {
-                    $0.leading.trailing.equalToSuperview()
-                    $0.height.equalTo(50)
-                }
+                context.suppliersService.getSupplier(id: selectedSupplierId, completion: { [weak self] result in
+                    guard let self = self else {
+                        return
+                    }
+                    switch result {
+                    case let .success(selectedSupplier):
+                        guard let selectedSupplier = selectedSupplier else {
+                            return
+                        }
+                        let supplierView = SupplierSubview(supplier: selectedSupplier)
+                        supplierView.update(for: selectedSupplier, viewState: .selected(price: selectedPrice))
+                        self.suppliersStackView.addArrangedSubview(supplierView)
+                        supplierView.snp.makeConstraints {
+                            $0.leading.trailing.equalToSuperview()
+                            $0.height.equalTo(50)
+                        }
+                    default:
+                        break
+                    }
+                })
             }
         }
     }
@@ -491,8 +544,9 @@ class JobDetailsView: BaseScrollableView {
             selectedDateTextField.tfState = .editable
             removeDateButton.availability = .disabled
             addDateButton.availability = .active
+            openDisputeButton.isHidden = true
             
-        case .awaitingForPrice, .inProgress, .dispute, .completed:
+        case .awaitingForPrice, .dispute, .completed:
             nameTextField.tfState = .notEditable
             partNumberTextField.tfState = .notEditable
             noteTextField.tfState = .notEditable
@@ -502,6 +556,20 @@ class JobDetailsView: BaseScrollableView {
             addDateButton.availability = .disabled
             removeDateButton.isHidden = true
             addDateButton.isHidden = true
+            openDisputeButton.isHidden = true
+            positivieButton.isHidden = true
+            
+        case .inProgress:
+            nameTextField.tfState = .notEditable
+            partNumberTextField.tfState = .notEditable
+            noteTextField.tfState = .notEditable
+            countTextField.tfState = .notEditable
+            selectedDateTextField.tfState = .notEditable
+            removeDateButton.availability = .disabled
+            addDateButton.availability = .disabled
+            removeDateButton.isHidden = true
+            addDateButton.isHidden = true
+            openDisputeButton.isHidden = false
         }
     }
 }

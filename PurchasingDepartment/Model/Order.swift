@@ -47,8 +47,8 @@ import Foundation
  }
  
  */
-struct Order {
-    let id: String
+struct Order: Codable {
+    let orderId: Int
     let name: String
     let partNumber: String
     let numberOfItems: Int
@@ -58,5 +58,5 @@ struct Order {
     var status: JobStatus
     var selectedPrice: Double?
     var suppliers: [Supplier]?
-    var selectedSupplier: Supplier?
+    var selectedSupplierId: Int?
 }

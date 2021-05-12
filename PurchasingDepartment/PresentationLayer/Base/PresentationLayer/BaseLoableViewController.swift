@@ -33,5 +33,6 @@ class BaseLoableViewController: UIViewController {
             loadingIndicator.stopAnimating()
             navigationItem.rightBarButtonItem = prevRightBarButtonItem
         }
+        self.view.isUserInteractionEnabled = !isLoading
     }
 }
