@@ -546,7 +546,19 @@ class JobDetailsView: BaseScrollableView {
             addDateButton.availability = .active
             openDisputeButton.isHidden = true
             
-        case .awaitingForPrice, .dispute, .completed:
+        case .awaitingForPrice, .dispute:
+            nameTextField.tfState = .notEditable
+            partNumberTextField.tfState = .notEditable
+            noteTextField.tfState = .notEditable
+            countTextField.tfState = .notEditable
+            selectedDateTextField.tfState = .notEditable
+            removeDateButton.availability = .disabled
+            addDateButton.availability = .disabled
+            removeDateButton.isHidden = true
+            addDateButton.isHidden = true
+            openDisputeButton.isHidden = true
+            
+        case .completed:
             nameTextField.tfState = .notEditable
             partNumberTextField.tfState = .notEditable
             noteTextField.tfState = .notEditable
